@@ -23,9 +23,9 @@
       </a>
       <nav class="b-head__nav" aria-label="navigazione">
         <a href="studio.html">studio</a>
-        <a href="lavori.html">lavori</a>
-        <a href="index.html">diario</a>
-        <a href="contatti.html" class="is-on">contatti</a>
+        <a href="lavori.html" data-i18n="nav.lavori">lavori</a>
+        <a href="index.html" data-i18n="nav.diario">diario</a>
+        <a href="contatti.html" class="is-on" data-i18n="nav.contatti">contatti</a>
       </nav>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
@@ -34,13 +34,13 @@
       <div class="b-art-head__num">——</div>
       <div class="b-art-head__body">
         <div class="b-art-head__meta">
-          <span class="kind">contatti</span>
-          <span>troia (fg) · puglia</span>
+          <span class="kind" data-i18n="contatti.kind">contatti</span>
+          <span data-i18n="contatti.location">troia (fg) · puglia</span>
         </div>
-        <h1 class="b-art-head__title">
+        <h1 class="b-art-head__title" data-i18n="contatti.h1">
           scriveteci <span class="s">/</span> siamo <b>ascoltatori</b>
         </h1>
-        <p class="b-art-head__lede">
+        <p class="b-art-head__lede" data-i18n="contatti.lede">
           per incarichi professionali, consulenze, collaborazioni didattiche o
           semplicemente per raccontarci un progetto che avete in mente.
           rispondiamo entro tre giorni lavorativi, di solito prima.
@@ -52,35 +52,35 @@
       <aside class="b-art-body__rail" aria-label="recapiti">
         <div><strong>email</strong>info@cibellieguadagno.it</div>
         <div><strong>telefono</strong>+39 0881 979331</div>
-        <div><strong>sede</strong>troia (fg)</div>
+        <div><strong>sede</strong><span data-i18n="contatti.rail.sede">troia (fg)</span></div>
       </aside>
 
       <div class="b-art-body__main">
-        <p>
+        <p data-i18n="contatti.body.p1">
           lo studio si trova a troia (fg), in puglia, loro terra d'origine.
           ricevere in studio è per noi parte del lavoro — il luogo dove
           si incontrano le persone è già un po' una dichiarazione di intenti.
         </p>
-        <p>
+        <p data-i18n="contatti.body.p2">
           lavoriamo principalmente in puglia e nel mezzogiorno d'italia.
           per incarichi di restauro ci spostiamo volentieri: la materia, ovunque sia,
           parla più o meno la stessa lingua.
         </p>
 
-        <h2>per un <b>progetto</b></h2>
-        <p>
+        <h2 data-i18n="contatti.h2.project">per un <b>progetto</b></h2>
+        <p data-i18n="contatti.p.project1">
           il primo incontro è sempre gratuito e informale. ci raccontate cosa avete in mente,
           noi ascoltiamo, facciamo qualche domanda. poi, se c'è interesse reciproco,
           prepariamo una proposta di incarico scritta, chiara, senza sorprese.
         </p>
-        <p>
+        <p data-i18n="contatti.p.project2">
           non lavoriamo su tutti i progetti che ci vengono proposti — non per snobismo,
           ma per rispetto: un incarico che non possiamo seguire bene è meglio non prenderlo.
           quando diciamo no, lo diciamo presto e suggeriamo alternative.
         </p>
 
-        <h2>per <b>collaborazioni</b></h2>
-        <p>
+        <h2 data-i18n="contatti.h2.collab">per <b>collaborazioni</b></h2>
+        <p data-i18n="contatti.p.collab">
           siamo aperti a collaborazioni con professionisti affini — ingegneri strutturisti,
           paesaggisti, fotografi, artigiani. se avete un progetto in cui pensate che
           potremmo portare qualcosa di utile, scriveteci senza formalità.
@@ -93,7 +93,7 @@
       <div style="grid-column: 3 / span 8; display: flex; flex-direction: column; gap: 24px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
           <div>
-            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;">studio</p>
+            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;"><span data-i18n="contatti.grid.studio">studio</span></p>
             <p style="font-size: 14px; line-height: 1.7; margin: 0; color: var(--cg-nero);">
               via regina margherita 166<br>
               71029 troia (fg)<br>
@@ -101,7 +101,7 @@
             </p>
           </div>
           <div>
-            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;">recapiti</p>
+            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;"><span data-i18n="contatti.grid.recapiti">recapiti</span></p>
             <p style="font-size: 14px; line-height: 1.7; margin: 0; color: var(--cg-nero);">
               info@cibellieguadagno.it<br>
               t +39 0881 979331<br>
@@ -110,7 +110,7 @@
             </p>
           </div>
           <div>
-            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;">altrove</p>
+            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;"><span data-i18n="contatti.grid.altrove">altrove</span></p>
             <p style="font-size: 14px; line-height: 1.7; margin: 0;">
               <a href="#" style="color: var(--cg-nero); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color 200ms;" onmouseover="this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.borderBottomColor='transparent'">instagram</a><br>
               <a href="#" style="color: var(--cg-nero); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color 200ms;" onmouseover="this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.borderBottomColor='transparent'">facebook</a><br>
@@ -118,11 +118,11 @@
             </p>
           </div>
           <div>
-            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;">orari</p>
+            <p style="font-size: 10px; letter-spacing: var(--num-track); text-transform: lowercase; color: var(--mute); margin: 0 0 10px;"><span data-i18n="contatti.grid.orari">orari</span></p>
             <p style="font-size: 14px; line-height: 1.7; margin: 0; color: var(--cg-nero);">
-              lun – ven<br>
+              <span data-i18n="contatti.grid.days">lun – ven</span><br>
               09:30 – 18:30<br>
-              <span style="color: var(--mute); font-size: 12px;">su appuntamento</span>
+              <span style="color: var(--mute); font-size: 12px;" data-i18n="contatti.grid.appt">su appuntamento</span>
             </p>
           </div>
         </div>
@@ -131,24 +131,24 @@
 
     <footer class="b-foot">
       <div class="b-foot__left">
-        <h3 class="b-foot__title">il diario <span class="s">/</span> in <b>posta</b></h3>
-        <p class="b-foot__sub">
+        <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
+        <p class="b-foot__sub" data-i18n="foot.diary.sub">
           qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
         </p>
         <form class="b-foot__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='grazie ·';">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
         </form>
       </div>
       <div class="b-foot__right">
         <div class="b-foot__col">
           <span class="b-foot__col-label">studio</span>
-          <a href="studio.html">profilo</a>
-          <a href="lavori.html">lavori</a>
-          <a href="contatti.html">contatti</a>
+          <a href="studio.html" data-i18n="foot.link.profilo">profilo</a>
+          <a href="lavori.html" data-i18n="foot.link.lavori">lavori</a>
+          <a href="contatti.html" data-i18n="foot.link.contatti">contatti</a>
         </div>
         <div class="b-foot__col">
-          <span class="b-foot__col-label">altrove</span>
+          <span class="b-foot__col-label" data-i18n="foot.col.altrove">altrove</span>
           <a href="#" target="_blank" rel="noopener">instagram</a>
           <a href="#" target="_blank" rel="noopener">facebook</a>
           <a href="#" target="_blank" rel="noopener">youtube</a>

@@ -29,9 +29,9 @@
       </a>
       <nav class="b-head__nav" aria-label="navigazione">
         <a href="../studio.html">studio</a>
-        <a href="../lavori.html">lavori</a>
-        <a href="../index.html" class="is-on">diario</a>
-        <a href="../contatti.html">contatti</a>
+        <a href="../lavori.html" data-i18n="nav.lavori">lavori</a>
+        <a href="../index.html" class="is-on" data-i18n="nav.diario">diario</a>
+        <a href="../contatti.html" data-i18n="nav.contatti">contatti</a>
       </nav>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
@@ -42,15 +42,15 @@
         <div class="b-art-head__num">09<em>nov 2025</em></div>
         <div class="b-art-head__body">
           <div class="b-art-head__meta">
-            <span class="kind">progetto</span>
-            <span>15 min di lettura</span>
-            <span>ascoli piceno · palazzo malaspina</span>
-            <span style="margin-left:auto">scritto a quattro mani</span>
+            <span class="kind" data-i18n="art.kind">progetto</span>
+            <span data-i18n="art.read">15 min di lettura</span>
+            <span data-i18n="art.location">ascoli piceno · palazzo malaspina</span>
+            <span style="margin-left:auto" data-i18n="art.4mani">scritto a quattro mani</span>
           </div>
-          <h1 class="b-art-head__title">
+          <h1 class="b-art-head__title" data-i18n="art.h1">
             sulla soglia <span class="s">/</span> dieci mesi a palazzo <b>malaspina</b>
           </h1>
-          <p class="b-art-head__lede">
+          <p class="b-art-head__lede" data-i18n="art.lede">
             si entra da una porta che non c'è più. il portone di travertino, restituito alla sua forma
             originaria dopo sette interventi sovrapposti, è il primo gesto: una soglia che decide quanto
             dell'antico resta visibile, e quanto si lascia attraversare dalla luce nuova.
@@ -70,10 +70,10 @@
       <div class="b-art-body">
         <aside class="b-art-body__rail" aria-label="metadati">
           <div><strong>progetto</strong>restauro conservativo</div>
-          <div><strong>committente</strong>fondazione carisap</div>
-          <div><strong>luogo</strong>ascoli piceno · 2024 — 2025</div>
-          <div><strong>team</strong>s. cibelli, p. guadagno, m. ferri, l. ottaviani</div>
-          <div><strong>fotografia</strong>marco ferri</div>
+          <div><strong><span data-i18n="art.rail.committente">committente</span></strong>fondazione carisap</div>
+          <div><strong><span data-i18n="art.rail.luogo">luogo</span></strong>ascoli piceno · 2024 — 2025</div>
+          <div><strong><span data-i18n="art.rail.team">team</span></strong>s. cibelli, p. guadagno, m. ferri, l. ottaviani</div>
+          <div><strong><span data-i18n="art.rail.fotografia">fotografia</span></strong>marco ferri</div>
         </aside>
 
         <div class="b-art-body__main">
@@ -176,12 +176,12 @@
 
       <!-- author + share -->
       <footer class="b-art-tail">
-        <div class="b-art-tail__rail">colophon</div>
+        <div class="b-art-tail__rail" data-i18n="art.colophon">colophon</div>
         <div class="b-art-tail__author">
           <div class="b-art-tail__avatar">
             <image-slot id="art-author" placeholder="foto degli autori"></image-slot>
           </div>
-          <p class="b-art-tail__bio">
+          <p class="b-art-tail__bio" data-i18n="art.bio">
             <strong>s. cibelli + p. guadagno</strong>
             architetti associati. attivi a troia (fg) dal 2000, dopo la laurea alla "la sapienza"
             di roma. si occupano di restauro conservativo, progettazione architettonica e design.
@@ -189,9 +189,9 @@
           </p>
         </div>
         <div class="b-art-tail__share">
-          <strong>condividi</strong>
+          <strong data-i18n="art.share">condividi</strong>
           <div class="b-art-tail__share-row">
-            <a href="#" rel="noopener">copia link</a>
+            <a href="#" rel="noopener" data-i18n="art.copy">copia link</a>
             <a href="#" rel="noopener">x</a>
             <a href="#" rel="noopener">are.na</a>
             <a href="mailto:?subject=sulla%20soglia">email</a>
@@ -202,33 +202,33 @@
 
     <!-- next post -->
     <a class="b-next" href="../index.html">
-      <span class="b-next__label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
-      <h3 class="b-next__title">tutte le <b>scritture</b></h3>
+      <span class="b-next__label" data-i18n="art.back.label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
+      <h3 class="b-next__title" data-i18n="art.back.title">tutte le <b>scritture</b></h3>
       <span class="b-next__arrow">→</span>
     </a>
 
     <!-- footer -->
     <footer class="b-foot">
       <div class="b-foot__left">
-        <h3 class="b-foot__title">il diario <span class="s">/</span> in <b>posta</b></h3>
-        <p class="b-foot__sub">
+        <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
+        <p class="b-foot__sub" data-i18n="foot.diary.sub">
           qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
           solo cose che ci sembrano valga la pena ricordare.
         </p>
         <form class="b-foot__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='grazie ·';">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
         </form>
       </div>
       <div class="b-foot__right">
         <div class="b-foot__col">
           <span class="b-foot__col-label">studio</span>
-          <a href="../studio.html">profilo</a>
-          <a href="../lavori.html">lavori</a>
-          <a href="../contatti.html">contatti</a>
+          <a href="../studio.html" data-i18n="foot.link.profilo">profilo</a>
+          <a href="../lavori.html" data-i18n="foot.link.lavori">lavori</a>
+          <a href="../contatti.html" data-i18n="foot.link.contatti">contatti</a>
         </div>
         <div class="b-foot__col">
-          <span class="b-foot__col-label">altrove</span>
+          <span class="b-foot__col-label" data-i18n="foot.col.altrove">altrove</span>
           <a href="#" target="_blank" rel="noopener">instagram</a>
           <a href="#" target="_blank" rel="noopener">facebook</a>
           <a href="#" target="_blank" rel="noopener">youtube</a>

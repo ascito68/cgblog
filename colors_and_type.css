@@ -1,0 +1,270 @@
+/* cibelli / guadagno — design tokens
+ * encodes the BecomeBrand "Visual Concept #01" rebrand (marzo 2021)
+ * everything lowercase. everything whispered.
+ */
+
+/* font loading -------------------------------------------------------- */
+/* Helvetica is a paid Linotype family and is NOT bundled here.
+ * supply the licensed .woff2 into /fonts/ and uncomment the @font-face below.
+ * the web substitute is Inter (metric-similar, free). flagged to the user. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+/*
+@font-face {
+  font-family: 'Helvetica Neue cg';
+  src: url('fonts/HelveticaNeue-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+*/
+
+:root {
+  /* type stack ------------------------------------------------------- */
+  --cg-font-sans: 'Helvetica Neue', 'Helvetica', 'Inter', 'Arial', sans-serif;
+  --cg-font-stack: var(--cg-font-sans);
+
+  /* colors — core triad (softened to match the mockup) -------------- */
+  --cg-tortora: #d4c8b0;       /* the "cıbellı/guadagno" header bg in the mockup */
+  --cg-tortora-mid: #a89986;
+  --cg-tortora-deep: #6e6357;
+  --cg-nero: #2e2a26;          /* warm soft ink — never pure black on screen */
+  --cg-grigio: #c8c4bd;        /* warm gray that sits in the family */
+
+  /* colors — extended (page 21, "abbinamenti cromatici") ------------ */
+  --cg-tortora-scuro: #6e5c4a;
+  --cg-tortora-medio: #937e66;
+  --cg-tortora-chiaro: #bfb6a3;
+
+  --cg-mauve-scuro: #7c5c68;
+  --cg-mauve-medio: #a9858e;
+  --cg-mauve-chiaro: #d5c3cb;
+
+  --cg-blu-scuro: #6e8390;
+  --cg-blu-medio: #8fa3b0;
+  --cg-blu-chiaro: #b8c8d2;
+
+  --cg-grigio-scuro: #3f3f3f;
+  --cg-grigio-chiaro: #e5e2dc;
+
+  /* surfaces -------------------------------------------------------- */
+  --cg-panna: #ffffff;          /* WHITE — per mockup */
+  --cg-bianco: #ffffff;
+  --cg-soft:  #faf8f5;          /* the warm off-white, used sparingly */
+
+  /* semantic colors ------------------------------------------------- */
+  --cg-bg: var(--cg-panna);
+  --cg-bg-elevated: var(--cg-bianco);
+  --cg-fg: var(--cg-nero);
+  --cg-fg-muted: #7a7268;
+  --cg-fg-subtle: #b0aaa1;
+  --cg-fg-accent: var(--cg-tortora-mid);
+  --cg-border: rgba(46, 42, 38, 0.10);
+  --cg-border-hairline: rgba(46, 42, 38, 0.06);
+  --cg-border-strong: var(--cg-nero);
+
+  /* type scale ------------------------------------------------------ */
+  --cg-size-micro: 11px;
+  --cg-size-caption: 13px;
+  --cg-size-body: 16px;
+  --cg-size-body-lg: 18px;
+  --cg-size-h3: 24px;
+  --cg-size-h2: 32px;
+  --cg-size-h1: 56px;
+  --cg-size-display: 96px;
+  --cg-size-hero: 144px;
+
+  /* weights --------------------------------------------------------- */
+  --cg-weight-light: 300;
+  --cg-weight-regular: 400;
+  --cg-weight-medium: 500;
+  --cg-weight-bold: 700;
+
+  /* tracking (letter-spacing) -------------------------------------- */
+  --cg-track-tight: -0.02em;
+  --cg-track-normal: 0;
+  --cg-track-loose: 0.08em;
+  --cg-track-micro: 0.14em;
+
+  /* line height ----------------------------------------------------- */
+  --cg-leading-tight: 1.05;
+  --cg-leading-snug: 1.25;
+  --cg-leading-body: 1.6;
+  --cg-leading-loose: 1.8;
+
+  /* spacing (4px base) --------------------------------------------- */
+  --cg-space-1: 4px;
+  --cg-space-2: 8px;
+  --cg-space-3: 12px;
+  --cg-space-4: 16px;
+  --cg-space-6: 24px;
+  --cg-space-8: 32px;
+  --cg-space-12: 48px;
+  --cg-space-16: 64px;
+  --cg-space-24: 96px;
+  --cg-space-32: 128px;
+
+  /* layout / page margins ------------------------------------------ */
+  --cg-page-margin: 8vw;
+  --cg-page-margin-y: 12vh;
+  --cg-content-max: 1320px;
+
+  /* radii ----------------------------------------------------------- */
+  --cg-radius: 0;        /* the brand is rigorously square */
+
+  /* shadows --------------------------------------------------------- */
+  --cg-shadow-none: none;
+
+  /* motion ---------------------------------------------------------- */
+  --cg-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --cg-duration-fast: 180ms;
+  --cg-duration: 300ms;
+  --cg-duration-slow: 420ms;
+
+  /* the slash ------------------------------------------------------- */
+  --cg-slash-color: var(--cg-tortora);
+  --cg-slash-weight: 1.5px;
+  --cg-slash-angle: 70deg; /* approximate angle of the slash glyph */
+}
+
+/* base ---------------------------------------------------------------- */
+html,
+body {
+  background: var(--cg-bg);
+  color: var(--cg-fg);
+  font-family: var(--cg-font-stack);
+  font-weight: var(--cg-weight-regular);
+  font-size: var(--cg-size-body);
+  line-height: var(--cg-leading-body);
+  letter-spacing: var(--cg-track-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-transform: none; /* allow lowercase declarations to render as-typed */
+}
+
+/* lowercase enforcement — the brand whispers --------------------------
+ * apply .cg-whisper to any block of body copy you want to lock to
+ * lowercase. headings opt in by class to allow accidental Italian
+ * proper nouns (place names) to keep their case when needed.
+ */
+.cg-whisper,
+.cg-whisper * {
+  text-transform: lowercase;
+}
+
+/* semantic tokens ----------------------------------------------------- */
+.cg-display,
+.cg-h1,
+.cg-h2,
+.cg-h3 {
+  font-family: var(--cg-font-stack);
+  color: var(--cg-fg);
+  margin: 0;
+}
+
+.cg-display {
+  font-size: clamp(56px, 9vw, var(--cg-size-hero));
+  font-weight: var(--cg-weight-light);
+  letter-spacing: var(--cg-track-tight);
+  line-height: var(--cg-leading-tight);
+}
+
+.cg-h1 {
+  font-size: clamp(40px, 5vw, var(--cg-size-h1));
+  font-weight: var(--cg-weight-light);
+  letter-spacing: var(--cg-track-tight);
+  line-height: var(--cg-leading-snug);
+}
+
+.cg-h2 {
+  font-size: var(--cg-size-h2);
+  font-weight: var(--cg-weight-regular);
+  line-height: var(--cg-leading-snug);
+}
+
+.cg-h3 {
+  font-size: var(--cg-size-h3);
+  font-weight: var(--cg-weight-bold);
+  letter-spacing: var(--cg-track-normal);
+  line-height: var(--cg-leading-snug);
+}
+
+.cg-body {
+  font-size: var(--cg-size-body);
+  font-weight: var(--cg-weight-regular);
+  line-height: var(--cg-leading-body);
+}
+
+.cg-body-lg {
+  font-size: var(--cg-size-body-lg);
+  font-weight: var(--cg-weight-light);
+  line-height: var(--cg-leading-body);
+}
+
+.cg-caption {
+  font-size: var(--cg-size-caption);
+  color: var(--cg-fg-muted);
+  line-height: var(--cg-leading-snug);
+}
+
+.cg-micro {
+  font-size: var(--cg-size-micro);
+  font-weight: var(--cg-weight-regular);
+  letter-spacing: var(--cg-track-micro);
+  color: var(--cg-fg-muted);
+  line-height: var(--cg-leading-snug);
+}
+
+.cg-mono-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* the wordmark slash -------------------------------------------------- */
+.cg-slash {
+  color: var(--cg-tortora);
+  font-weight: var(--cg-weight-light);
+  padding: 0 0.08em;
+}
+
+.cg-mark-r {
+  font-size: 0.35em;
+  vertical-align: super;
+  font-weight: var(--cg-weight-regular);
+  margin-left: 0.05em;
+}
+
+/* utility ------------------------------------------------------------- */
+.cg-emph {
+  font-weight: var(--cg-weight-bold);
+}
+
+.cg-rule {
+  border: 0;
+  border-top: 1px solid var(--cg-border-hairline);
+  margin: var(--cg-space-12) 0;
+}
+
+.cg-rule-strong {
+  border: 0;
+  border-top: 1px solid var(--cg-border-strong);
+  margin: var(--cg-space-12) 0;
+}
+
+/* slash-cut diagonal photo treatment --------------------------------
+ * wrap an <img> in .cg-slash-photo to get the brand's signature
+ * diagonal-half tortora wash. the photo half stays full-bleed, the
+ * panna half is achieved via mask + filter on a duplicated layer.
+ */
+.cg-slash-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--cg-panna);
+}
+.cg-slash-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-mask: linear-gradient(to top right, #000 0 50%, transparent 50% 100%);
+          mask: linear-gradient(to top right, #000 0 50%, transparent 50% 100%);
+}

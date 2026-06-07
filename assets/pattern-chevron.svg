@@ -1,0 +1,13 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <pattern id="cg-stripe-up" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(60)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#bfb6a3" stroke-width="1.2"></line>
+    </pattern>
+    <pattern id="cg-stripe-dn" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(-60)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#bfb6a3" stroke-width="1.2"></line>
+    </pattern>
+  </defs>
+  <rect width="120" height="60" fill="url(#cg-stripe-up)"></rect>
+  <rect y="60" width="120" height="60" fill="url(#cg-stripe-dn)"></rect>
+</svg>

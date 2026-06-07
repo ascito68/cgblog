@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>diario — cibelli / guadagno</title>
+<meta name="description" content="diario dello studio cibelli / guadagno — note dal cantiere, riflessioni, progetti.">
+<link rel="stylesheet" href="styles.css">
+<script src="image-slot.js" defer></script>
+<script src="blog.js" defer></script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body data-screen-label="blog index">
+<div class="b-page">
+
+  <!-- ambient rotating slash (behind everything) -->
+  <div class="b-ambient" aria-hidden="true">
+    <div class="b-ambient__slash"></div>
+  </div>
+
+  <div class="b-content">
+
+    <!-- header -->
+    <header class="b-head">
+      <a class="b-head__mark" href="index.html">
+        cıbellı<span class="s">/</span>guadagno<sup>®</sup>
+      </a>
+      <nav class="b-head__nav" aria-label="navigazione">
+        <a href="#studio">studio</a>
+        <a href="#lavori">lavori</a>
+        <a href="index.html" class="is-on">diario</a>
+        <a href="#contatti">contatti</a>
+      </nav>
+      <button class="b-head__lang" type="button">it / en</button>
+    </header>
+
+    <!-- banner -->
+    <section class="b-banner">
+      <div>
+        <div class="b-banner__meta">
+          <span>vol. ɪ — 2025 / 2026</span>
+          <span>diario aperto, non periodico</span>
+        </div>
+        <h1 class="b-banner__title">
+          <span class="l1">inclinazioni</span>
+          <span class="l2" style="font-size: 135px">/ architettoniche</span>
+        </h1>
+      </div>
+      <aside class="b-banner__aside">
+        <p class="b-banner__lede">
+          un quaderno aperto. annotazioni, fotografie, deviazioni. cose viste sui ponteggi,
+          letture rimaste in tasca, dialoghi con la materia. <em>scritture brevi, qualche affondo lungo.</em>
+        </p>
+        <hr class="b-banner__rule">
+        <div class="b-banner__tags">
+          <span>note</span><span>cantiere</span><span>progetto</span><span>riflessioni</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- search + filters -->
+    <section class="b-toolbar" aria-label="ricerca">
+      <label class="b-search">
+        <span class="b-search__icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 3 3"></path>
+          </svg>
+        </span>
+        <input data-search type="search" placeholder="cerca una parola, un cantiere, un autore…" aria-label="cerca">
+        <span class="b-search__count" data-count>09 scritture</span>
+      </label>
+      <div class="b-filters" role="tablist">
+        <button data-filter="tutti" class="is-on" type="button">tutti</button>
+        <button data-filter="cantiere" type="button">cantiere</button>
+        <button data-filter="progetto" type="button">progetto</button>
+        <button data-filter="riflessioni" type="button">riflessioni</button>
+        <button data-filter="pubblicazioni" type="button">pubblicazioni</button>
+      </div>
+    </section>
+
+    <!-- entries -->
+    <section class="b-list" id="diario">
+
+      <!-- 01 — reportage / featured photo right -->
+      <a class="b-entry" href="post/sulla-soglia.html" data-kind="progetto" data-tags="ascoli pietra travertino restauro soglia">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">09<em>nov 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">progetto</span>
+            <span>15 min di lettura</span>
+            <span>ascoli piceno · palazzo malaspina</span>
+          </div>
+          <h2 class="b-entry__title">
+            sulla soglia <span class="s">/</span> dieci mesi a palazzo <b>malaspina</b>
+          </h2>
+          <p class="b-entry__lede">
+            si entra da una porta che non c'è più. il portone di travertino, restituito alla sua forma originaria dopo
+            sette interventi sovrapposti, è il primo gesto: una soglia che decide quanto dell'antico resta visibile,
+            e quanto si lascia attraversare dalla luce nuova.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">scritto a quattro mani · g.c. + g.g.</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="blog-09" placeholder="trascina la foto del portone restaurato"></image-slot>
+        </div>
+      </a>
+
+      <!-- 02 — text only / saggistica -->
+      <a class="b-entry is-textonly" href="#" data-kind="riflessioni" data-tags="materia tempo restauro filosofia ruskin scarpa">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">08<em>ott 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">riflessioni</span>
+            <span>7 min</span>
+          </div>
+          <h2 class="b-entry__title">
+            la pietra <span class="s">/</span> non ha <b>fretta</b>
+          </h2>
+          <p class="b-entry__lede">
+            scarpa diceva che le superfici antiche andrebbero solo accarezzate. è un consiglio
+            che si riceve più che si applica. tra ruskin e brandi, tra patina e ripulitura, c'è
+            una zona di ascolto che nessun manuale può descrivere: la materia parla a chi ha
+            il pazienza di smettere, per un attimo, di progettare.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">a cura di g. guadagno</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 — cantiere note, mirrored layout -->
+      <a class="b-entry is-mirror" href="#" data-kind="cantiere" data-tags="fano malta calce intonaco campionatura cantiere">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">07<em>set 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">cantiere</span>
+            <span>3 min</span>
+            <span>fano · ex-conservificio</span>
+          </div>
+          <h2 class="b-entry__title">
+            campioni di malta <span class="s">/</span> sette gradazioni di <b>ocra</b>
+          </h2>
+          <p class="b-entry__lede">
+            la campionatura, attaccata al muro come una tavolozza scaduta, ha lavorato due mesi sotto la pioggia
+            e sotto il sole. ne abbiamo scelte tre. le altre quattro resteranno lì: piccoli quadrati di tempo
+            che il prossimo intonaco, prima o poi, dovrà coprire.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">foto · m. ferri</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="blog-07" placeholder="campionatura intonaci"></image-slot>
+        </div>
+      </a>
+
+      <!-- 04 — text-only short / cantiere -->
+      <a class="b-entry is-textonly" href="#" data-kind="cantiere" data-tags="treia cantiere annotazioni quaderno">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">06<em>ago 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">cantiere</span>
+            <span>2 min</span>
+            <span>treia · cascina r.</span>
+          </div>
+          <h2 class="b-entry__title">
+            quaderno <span class="s">/</span> tre <b>annotazioni</b>
+          </h2>
+          <p class="b-entry__lede">
+            (i) il falegname ha tagliato il rovere contro vena, di proposito. dice che così
+            «si vede dove l'albero ha sofferto». (ii) la calce idraulica, oggi, è esattamente
+            del colore della crosta di pane. (iii) abbiamo perso un'ora a discutere se la lampada
+            dovesse essere a sinistra o a destra dello specchio. era a destra.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">g. cibelli</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 05 — reportage / photo right -->
+      <a class="b-entry" href="#" data-kind="progetto" data-tags="design tavolo travertino mobile artigianato">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">05<em>lug 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">progetto</span>
+            <span>9 min</span>
+            <span>collezione · sottosuolo</span>
+          </div>
+          <h2 class="b-entry__title">
+            un tavolo che pesa <span class="s">/</span> <b>sottosuolo</b>, primo pezzo
+          </h2>
+          <p class="b-entry__lede">
+            quattrocento chilogrammi di travertino noce e un piano di ferro brunito.
+            non si sposta, non si rovescia. lo abbiamo disegnato per restare. il primo pezzo
+            della collezione ‹sottosuolo› è meno un tavolo che una posizione presa nel mondo
+            del design domestico.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">in collaborazione con tipi</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="blog-05" placeholder="tavolo sottosuolo · vista frontale"></image-slot>
+        </div>
+      </a>
+
+      <!-- 06 — pubblicazione -->
+      <a class="b-entry is-textonly" href="#" data-kind="pubblicazioni" data-tags="domus rivista articolo pubblicazione architettura">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">04<em>mag 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">pubblicazioni</span>
+            <span>domus n. 1097</span>
+          </div>
+          <h2 class="b-entry__title">
+            su <em>domus</em> <span class="s">/</span> tre <b>pagine</b> sulla cascina r.
+          </h2>
+          <p class="b-entry__lede">
+            «il restauro è una pratica della pazienza»: così apre il pezzo che marco belpoliti
+            ci ha dedicato sul numero di maggio. condividiamo qui qualche pagina, e qualche
+            piccola nota che non è entrata in stampa.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">testo · m. belpoliti</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 07 — mirrored cantiere -->
+      <a class="b-entry is-mirror" href="#" data-kind="cantiere" data-tags="luce lampada zenitale lucernario velario">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">03<em>apr 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">cantiere</span>
+            <span>5 min</span>
+            <span>ancona · cappella di s. ciriaco</span>
+          </div>
+          <h2 class="b-entry__title">
+            la luce zenitale <span class="s">/</span> come <b>tagliare</b> un cielo
+          </h2>
+          <p class="b-entry__lede">
+            il velario, srotolato sul pavimento prima del montaggio, sembrava il foglio di un
+            atlante. dieci giorni dopo, sospeso a sette metri, è diventato un cielo addomesticato:
+            filtra, attenua, lascia cadere. la luce non si progetta, si negozia.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">in cantiere · ottobre</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="blog-03" placeholder="luce zenitale · montaggio velario"></image-slot>
+        </div>
+      </a>
+
+      <!-- 08 — riflessioni lunghe -->
+      <a class="b-entry is-textonly" href="#" data-kind="riflessioni" data-tags="vuoto spazio architettura abitare casa">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">02<em>feb 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">riflessioni</span>
+            <span>11 min</span>
+          </div>
+          <h2 class="b-entry__title">
+            <b>abitare</b> il vuoto <span class="s">/</span> appunti dopo una visita a olgiati
+          </h2>
+          <p class="b-entry__lede">
+            tornare a mendrisio, dopo dieci anni, è stato come rileggere un libro che si pensava
+            di ricordare bene. la casa bianca di valerio olgiati, ostinatamente cava, ci ha
+            ricordato che il vuoto non è assenza ma <em>tensione</em>: una corda tesa tra due muri.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">g. guadagno · diario di viaggio</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 09 — opening project, photo right -->
+      <a class="b-entry" href="#" data-kind="progetto" data-tags="studio apertura inaugurazione manifesto">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">01<em>gen 2025</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">progetto</span>
+            <span>4 min</span>
+            <span>fondazione · manifesto</span>
+          </div>
+          <h2 class="b-entry__title">
+            apertura <span class="s">/</span> due nomi, una <b>linea obliqua</b>
+          </h2>
+          <p class="b-entry__lede">
+            iniziamo a scrivere qui. non un diario quotidiano — non avremmo il tempo, e non
+            sarebbe interessante. piuttosto: una serie di stazioni, di soste, di brevi rese
+            di conto. la linea obliqua del nome dello studio è anche l'angolo da cui guardiamo.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">a quattro mani</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="blog-01" placeholder="ritratto dello studio · gennaio"></image-slot>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- footer -->
+    <footer class="b-foot">
+      <div class="b-foot__left">
+        <h3 class="b-foot__title">il diario <span class="s">/</span> in <b>posta</b></h3>
+        <p class="b-foot__sub">
+          qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
+          solo cose che ci sembrano valga la pena ricordare.
+        </p>
+        <form class="b-foot__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='grazie ·';">
+          <input type="email" placeholder="la tua email" aria-label="email">
+          <button type="submit">iscriviti →</button>
+        </form>
+      </div>
+      <div class="b-foot__right">
+        <div class="b-foot__col">
+          <span class="b-foot__col-label">studio</span>
+          <a href="#">profilo</a>
+          <a href="#">lavori</a>
+          <a href="#">contatti</a>
+        </div>
+        <div class="b-foot__col">
+          <span class="b-foot__col-label">altrove</span>
+          <a href="#" target="_blank" rel="noopener">instagram</a>
+          <a href="#" target="_blank" rel="noopener">are.na</a>
+          <a href="#" target="_blank" rel="noopener">vimeo</a>
+        </div>
+        <div class="b-foot__base">
+          <span>cıbellı<span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>guadagno · architetti associati · p. iva 02xxxxxx</span>
+          <span>© mmxxv — tutto in minuscolo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- slash-wipe transition overlay -->
+  <div class="b-wipe" aria-hidden="true">
+    <div class="b-wipe__slash">/</div>
+  </div>
+
+</div>
+
+<!-- tweaks panel (accent color palette) -->
+<div id="tweaks-root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+// each palette is [accent, accent-soft, accent-deep]
+const PALETTES = [
+  ["#a89986", "#d9cfba", "#6e6357"],  // tortora (default)
+  ["#a9858e", "#d5c3cb", "#7c5c68"],  // mauve
+  ["#8fa3b0", "#b8c8d2", "#6e8390"],  // blu polvere
+  ["#3f3a35", "#cfc8be", "#1f1c19"],  // nero
+];
+
+const TWEAKS_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": ["#a89986", "#d9cfba", "#6e6357"]
+}/*EDITMODE-END*/;
+
+function applyPalette(p) {
+  if (!Array.isArray(p) || p.length < 3) return;
+  const r = document.documentElement;
+  r.style.setProperty('--accent', p[0]);
+  r.style.setProperty('--accent-soft', p[1]);
+  r.style.setProperty('--accent-deep', p[2]);
+}
+
+function App() {
+  const t = window.useTweaks(TWEAKS_DEFAULTS);
+  React.useEffect(() => { applyPalette(t.palette); }, [t.palette]);
+
+  return (
+    <window.TweaksPanel title="tweaks">
+      <window.TweakSection label="accento">
+        <window.TweakColor
+          label="palette"
+          value={t.palette}
+          onChange={(v) => t.setTweak('palette', v)}
+          options={PALETTES}
+        />
+      </window.TweakSection>
+    </window.TweaksPanel>
+  );
+}
+
+// apply default on load
+applyPalette(TWEAKS_DEFAULTS.palette);
+
+const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
+root.render(<App />);
+</script>
+
+</body>
+</html>

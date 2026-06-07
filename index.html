@@ -30,9 +30,9 @@
       </a>
       <nav class="b-head__nav" aria-label="navigazione">
         <a href="studio.html">studio</a>
-        <a href="lavori.html">lavori</a>
-        <a href="index.html" class="is-on">diario</a>
-        <a href="contatti.html">contatti</a>
+        <a href="lavori.html" data-i18n="nav.lavori">lavori</a>
+        <a href="index.html" class="is-on" data-i18n="nav.diario">diario</a>
+        <a href="contatti.html" data-i18n="nav.contatti">contatti</a>
       </nav>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
@@ -42,15 +42,15 @@
       <div>
         <div class="b-banner__meta">
           <span>vol. ɪ — 2025 / 2026</span>
-          <span>diario aperto, non periodico</span>
+          <span data-i18n="index.meta2">diario aperto, non periodico</span>
         </div>
         <h1 class="b-banner__title">
-          <span class="l1">inclinazioni</span>
-          <span class="l2">/ architettoniche</span>
+          <span class="l1" data-i18n="index.l1">inclinazioni</span>
+          <span class="l2" data-i18n="index.l2">/ architettoniche</span>
         </h1>
       </div>
       <aside class="b-banner__aside">
-        <p class="b-banner__lede">
+        <p class="b-banner__lede" data-i18n="index.lede">
           un quaderno aperto. annotazioni, fotografie, deviazioni. cose viste sui ponteggi,
           letture rimaste in tasca, dialoghi con la materia. <em>scritture brevi, qualche affondo lungo.</em>
         </p>
@@ -73,11 +73,11 @@
         <span class="b-search__count" data-count>09 scritture</span>
       </label>
       <div class="b-filters" role="tablist">
-        <button data-filter="tutti" class="is-on" type="button">tutti</button>
-        <button data-filter="cantiere" type="button">cantiere</button>
-        <button data-filter="progetto" type="button">progetto</button>
-        <button data-filter="riflessioni" type="button">riflessioni</button>
-        <button data-filter="pubblicazioni" type="button">pubblicazioni</button>
+        <button data-filter="tutti" class="is-on" type="button" data-i18n="filter.tutti">tutti</button>
+        <button data-filter="cantiere" type="button" data-i18n="filter.cantiere">cantiere</button>
+        <button data-filter="progetto" type="button" data-i18n="filter.progetto">progetto</button>
+        <button data-filter="riflessioni" type="button" data-i18n="filter.riflessioni">riflessioni</button>
+        <button data-filter="pubblicazioni" type="button" data-i18n="filter.pubblicazioni">pubblicazioni</button>
       </div>
     </section>
 
@@ -329,25 +329,25 @@
     <!-- footer -->
     <footer class="b-foot">
       <div class="b-foot__left">
-        <h3 class="b-foot__title">il diario <span class="s">/</span> in <b>posta</b></h3>
-        <p class="b-foot__sub">
+        <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
+        <p class="b-foot__sub" data-i18n="foot.diary.sub">
           qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
           solo cose che ci sembrano valga la pena ricordare.
         </p>
         <form class="b-foot__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='grazie ·';">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
         </form>
       </div>
       <div class="b-foot__right">
         <div class="b-foot__col">
           <span class="b-foot__col-label">studio</span>
-          <a href="studio.html">profilo</a>
-          <a href="lavori.html">lavori</a>
-          <a href="contatti.html">contatti</a>
+          <a href="studio.html" data-i18n="foot.link.profilo">profilo</a>
+          <a href="lavori.html" data-i18n="foot.link.lavori">lavori</a>
+          <a href="contatti.html" data-i18n="foot.link.contatti">contatti</a>
         </div>
         <div class="b-foot__col">
-          <span class="b-foot__col-label">altrove</span>
+          <span class="b-foot__col-label" data-i18n="foot.col.altrove">altrove</span>
           <a href="#" target="_blank" rel="noopener">instagram</a>
           <a href="#" target="_blank" rel="noopener">facebook</a>
           <a href="#" target="_blank" rel="noopener">youtube</a>

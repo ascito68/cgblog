@@ -159,7 +159,7 @@ html, body {
   margin-bottom: 32px;
 }
 .b-banner__title {
-  font-size: clamp(56px, 11vw, 188px);
+  font-size: clamp(36px, 4.5vw, 72px);
   font-weight: 200;
   line-height: 0.92;
   letter-spacing: -0.02em;
@@ -167,7 +167,7 @@ html, body {
   text-transform: lowercase;
 }
 .b-banner__title .l1 { display: block; }
-.b-banner__title .l2 { display: block; font-weight: 700; letter-spacing: -0.025em; }
+.b-banner__title .l2 { display: block; font-weight: 700; letter-spacing: -0.025em; font-size: 1em; }
 .b-banner__title .s {
   color: var(--accent);
   font-weight: 200;

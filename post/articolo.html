@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>titolo articolo — diario · Cibelli / Guadagno architetti</title>
+<meta name="description" content="descrizione articolo.">
+<link rel="stylesheet" href="../styles.css">
+<script src="../image-slot.js" defer></script>
+<script src="../blog.js" defer></script>
+</head>
+<body data-screen-label="blog article">
+<div class="b-page">
+
+  <div class="b-ambient" aria-hidden="true">
+    <div class="b-ambient__slash"></div>
+  </div>
+
+  <div class="b-content">
+
+    <header class="b-head">
+      <a class="b-head__mark" href="../index.html">
+        cıbellı<span class="s">/</span>guadagno<sup>®</sup>
+      </a>
+      <nav class="b-head__nav" aria-label="navigazione">
+        <a href="../studio.html">studio</a>
+        <a href="../lavori.html" data-i18n="nav.lavori">lavori</a>
+        <a href="../index.html" class="is-on" data-i18n="nav.diario">diario</a>
+        <a href="../contatti.html" data-i18n="nav.contatti">contatti</a>
+      </nav>
+      <button class="b-head__lang" type="button">it / en</button>
+    </header>
+
+    <article>
+
+      <!-- intestazione articolo -->
+      <header class="b-art-head">
+        <div class="b-art-head__num">—<em>mese anno</em></div>
+        <div class="b-art-head__body">
+          <div class="b-art-head__meta">
+            <span class="kind" data-i18n="art.kind">categoria</span>
+            <span data-i18n="art.read">— min di lettura</span>
+            <span data-i18n="art.location">luogo</span>
+            <span style="margin-left:auto" data-i18n="art.4mani">autore</span>
+          </div>
+          <h1 class="b-art-head__title" data-i18n="art.h1">
+            titolo <span class="s">/</span> <b>sottotitolo</b>
+          </h1>
+          <p class="b-art-head__lede" data-i18n="art.lede">
+            testo introduttivo dell'articolo. una o due frasi che anticipano il contenuto.
+          </p>
+        </div>
+      </header>
+
+      <!-- immagine hero -->
+      <figure class="b-art-hero">
+        <image-slot id="art-hero" placeholder="immagine principale"></image-slot>
+        <figcaption class="b-art-hero__cap">
+          didascalia immagine · foto autore
+        </figcaption>
+      </figure>
+
+      <!-- corpo -->
+      <div class="b-art-body">
+
+        <!-- barra laterale metadati -->
+        <aside class="b-art-body__rail" aria-label="metadati">
+          <div><strong>progetto</strong>tipo di progetto</div>
+          <div><strong><span data-i18n="art.rail.committente">committente</span></strong>nome committente</div>
+          <div><strong><span data-i18n="art.rail.luogo">luogo</span></strong>città · anno</div>
+          <div><strong><span data-i18n="art.rail.team">team</span></strong>nomi collaboratori</div>
+          <div><strong><span data-i18n="art.rail.fotografia">fotografia</span></strong>nome fotografo</div>
+        </aside>
+
+        <!-- testo principale -->
+        <div class="b-art-body__main">
+          <p>
+            primo paragrafo del testo.
+          </p>
+          <p>
+            secondo paragrafo del testo.
+          </p>
+
+          <h2>titolo sezione <span class="s">/</span> <b>sottosezione</b></h2>
+          <p>
+            testo della sezione.
+          </p>
+          <p>
+            continuazione della sezione.
+          </p>
+        </div>
+
+        <!-- citazione in evidenza -->
+        <blockquote class="b-art-pull">
+          testo della citazione in evidenza.
+          <span class="src">— fonte, data</span>
+        </blockquote>
+
+        <!-- testo dopo la citazione -->
+        <div class="b-art-body__main">
+          <h2>titolo seconda sezione <span class="s">/</span> <b>sottosezione</b></h2>
+          <p>
+            testo della seconda sezione.
+          </p>
+          <p>
+            continuazione della seconda sezione.
+          </p>
+        </div>
+
+        <!-- due immagini affiancate -->
+        <figure class="b-art-figure">
+          <div>
+            <div class="b-art-figure__slot">
+              <image-slot id="art-fig-1" placeholder="immagine 1"></image-slot>
+            </div>
+            <figcaption class="b-art-figure__cap">
+              <em>fig. 01</em> · didascalia immagine 1.
+            </figcaption>
+          </div>
+          <div>
+            <div class="b-art-figure__slot">
+              <image-slot id="art-fig-2" placeholder="immagine 2"></image-slot>
+            </div>
+            <figcaption class="b-art-figure__cap">
+              <em>fig. 02</em> · didascalia immagine 2.
+            </figcaption>
+          </div>
+        </figure>
+
+        <!-- testo finale -->
+        <div class="b-art-body__main">
+          <h2>titolo terza sezione <span class="s">/</span> <b>conclusione</b></h2>
+          <p>
+            testo conclusivo dell'articolo.
+          </p>
+          <p>
+            ultimo paragrafo.
+          </p>
+        </div>
+
+      </div><!-- /b-art-body -->
+
+      <!-- autore + condivisione -->
+      <footer class="b-art-tail">
+        <div class="b-art-tail__rail" data-i18n="art.colophon">colophon</div>
+        <div class="b-art-tail__author">
+          <div class="b-art-tail__avatar">
+            <image-slot id="art-author" placeholder="foto autore"></image-slot>
+          </div>
+          <p class="b-art-tail__bio" data-i18n="art.bio">
+            <strong>autore</strong>
+            breve biografia dell'autore dell'articolo.
+          </p>
+        </div>
+        <div class="b-art-tail__share">
+          <strong data-i18n="art.share">condividi</strong>
+          <div class="b-art-tail__share-row">
+            <a href="#" rel="noopener" data-i18n="art.copy">copia link</a>
+            <a href="#" rel="noopener">x</a>
+            <a href="mailto:?subject=articolo">email</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+
+    <!-- articolo successivo / torna al diario -->
+    <a class="b-next" href="../index.html">
+      <span class="b-next__label" data-i18n="art.back.label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
+      <h3 class="b-next__title" data-i18n="art.back.title">tutte le <b>scritture</b></h3>
+      <span class="b-next__arrow">→</span>
+    </a>
+
+    <footer class="b-foot">
+      <div class="b-foot__left">
+        <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
+        <p class="b-foot__sub" data-i18n="foot.diary.sub">
+          qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
+          solo cose che ci sembrano valga la pena ricordare.
+        </p>
+        <form class="b-foot__form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='grazie ·';">
+          <input type="email" placeholder="la tua email" aria-label="email">
+          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
+        </form>
+      </div>
+      <div class="b-foot__right">
+        <div class="b-foot__col">
+          <span class="b-foot__col-label">studio</span>
+          <a href="../studio.html" data-i18n="foot.link.profilo">profilo</a>
+          <a href="../lavori.html" data-i18n="foot.link.lavori">lavori</a>
+          <a href="../contatti.html" data-i18n="foot.link.contatti">contatti</a>
+        </div>
+        <div class="b-foot__col">
+          <span class="b-foot__col-label" data-i18n="foot.col.altrove">altrove</span>
+          <a href="#" target="_blank" rel="noopener">instagram</a>
+          <a href="#" target="_blank" rel="noopener">facebook</a>
+          <a href="#" target="_blank" rel="noopener">youtube</a>
+        </div>
+        <div class="b-foot__base">
+          <span>Cibelli<span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>Guadagno architetti · p. iva 02207070711</span>
+          <span>© mmxxv</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="b-wipe" aria-hidden="true">
+    <div class="b-wipe__slash">/</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -394,19 +394,20 @@ html, body {
   width: 100%;
   background: var(--accent-soft);
 }
-.b-entry__photo image-slot {
+.b-entry__photo image-slot,
+.b-entry__photo img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  -webkit-mask: linear-gradient(to top right, #000 0 56%, transparent 56.4% 100%);
-          mask: linear-gradient(to top right, #000 0 56%, transparent 56.4% 100%);
+  object-fit: cover;
 }
 .b-entry__photo::after {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--accent-soft);
+  opacity: 0.55;
   -webkit-mask: linear-gradient(to top right, transparent 0 56%, #000 56.4% 100%);
           mask: linear-gradient(to top right, transparent 0 56%, #000 56.4% 100%);
   pointer-events: none;
@@ -655,19 +656,20 @@ html, body {
   background: var(--accent-soft);
   overflow: hidden;
 }
-.b-art-hero image-slot {
+.b-art-hero image-slot,
+.b-art-hero img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  -webkit-mask: linear-gradient(to top right, #000 0 62%, transparent 62.4% 100%);
-          mask: linear-gradient(to top right, #000 0 62%, transparent 62.4% 100%);
+  object-fit: cover;
 }
 .b-art-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--accent-soft);
+  opacity: 0.55;
   -webkit-mask: linear-gradient(to top right, transparent 0 62%, #000 62.4% 100%);
           mask: linear-gradient(to top right, transparent 0 62%, #000 62.4% 100%);
   pointer-events: none;

@@ -96,6 +96,10 @@
         setTimeout(() => { window.location.href = href; }, 520);
       });
     });
+    // BFCache (Safari mobile): reset the overlay when the page is restored from cache
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) wipe.classList.remove('is-on');
+    });
   }
 
   // ─── reveal-from-transition on article pages ─────────────────

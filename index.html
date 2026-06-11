@@ -10,6 +10,17 @@
 <script src="blog.js" defer></script>
 </head>
 <body data-screen-label="blog index">
+<script>
+/* traduzioni inglesi delle anteprime articoli — lette da blog.js */
+window.PAGE_EN = {
+  'p.e1.date':  'jun 2026',
+  'p.e1.kind':  'site',
+  'p.e1.read':  '4 min',
+  'p.e1.title': 'a site visit <span class="s">/</span> <b>by night</b>',
+  'p.e1.lede':  'faeto, an evening site visit with edil tortorella: setting out the paving courses and the conduits before the laying surface is closed.',
+  'p.e1.go':    'read <span class="arrow">→</span>',
+};
+</script>
 <div class="b-page">
 
   <!-- ambient rotating slash (behind everything) -->
@@ -83,22 +94,22 @@
       <!-- layout A — foto destra -->
       <a class="b-entry" href="post/sopralluogo-faeto-notturna.html" data-kind="cantiere" data-tags="cantiere">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em>giu 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e1.date">giu 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind">cantiere</span>
-            <span>4 min</span>
+            <span class="kind" data-i18n="p.e1.kind">cantiere</span>
+            <span data-i18n="p.e1.read">4 min</span>
             <span>faeto (fg)</span>
           </div>
-          <h2 class="b-entry__title">
+          <h2 class="b-entry__title" data-i18n="p.e1.title">
             un sopralluogo <span class="s">/</span> <b>in notturna</b>
           </h2>
-          <p class="b-entry__lede">
-            ci sono decisioni che si prendono meglio di notte, quando il cantiere è vuoto
-            e la piazza è tutta linee di gesso sul cemento. faeto, con edil tortorella.
+          <p class="b-entry__lede" data-i18n="p.e1.lede">
+            faeto, sopralluogo serale con edil tortorella: tracciare i filari della
+            pavimentazione e i cavidotti prima della chiusura del piano di posa.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e1.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">s. cibelli</span>
           </div>
         </div>

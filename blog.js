@@ -197,6 +197,10 @@
     'art.back.title':       'all the <b>writings</b>',
   };
 
+  // per-page translations: each page (article) can define its own
+  // window.PAGE_EN = { 'p.xxx': '...' } in an inline <script> — merged here
+  Object.assign(EN, window.PAGE_EN || {});
+
   const _itCache = {};
   let _lang = localStorage.getItem('cg-lang') || 'it';
 

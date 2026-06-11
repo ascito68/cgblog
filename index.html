@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="styles.css">
 <script src="image-slot.js" defer></script>
 <script src="blog.js" defer></script>
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body data-screen-label="blog index">
 <div class="b-page">
@@ -202,56 +198,6 @@
   </div>
 
 </div>
-
-<!-- tweaks panel (accent color palette) -->
-<div id="tweaks-root"></div>
-
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-// each palette is [accent, accent-soft, accent-deep]
-const PALETTES = [
-  ["#a89986", "#d9cfba", "#6e6357"],  // tortora (default)
-  ["#a9858e", "#d5c3cb", "#7c5c68"],  // mauve
-  ["#8fa3b0", "#b8c8d2", "#6e8390"],  // blu polvere
-  ["#3f3a35", "#cfc8be", "#1f1c19"],  // nero
-];
-
-const TWEAKS_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "palette": ["#a89986", "#d9cfba", "#6e6357"]
-}/*EDITMODE-END*/;
-
-function applyPalette(p) {
-  if (!Array.isArray(p) || p.length < 3) return;
-  const r = document.documentElement;
-  r.style.setProperty('--accent', p[0]);
-  r.style.setProperty('--accent-soft', p[1]);
-  r.style.setProperty('--accent-deep', p[2]);
-}
-
-function App() {
-  const t = window.useTweaks(TWEAKS_DEFAULTS);
-  React.useEffect(() => { applyPalette(t.palette); }, [t.palette]);
-
-  return (
-    <window.TweaksPanel title="tweaks">
-      <window.TweakSection label="accento">
-        <window.TweakColor
-          label="palette"
-          value={t.palette}
-          onChange={(v) => t.setTweak('palette', v)}
-          options={PALETTES}
-        />
-      </window.TweakSection>
-    </window.TweaksPanel>
-  );
-}
-
-// apply default on load
-applyPalette(TWEAKS_DEFAULTS.palette);
-
-const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
-root.render(<App />);
-</script>
 
 </body>
 </html>

@@ -181,13 +181,7 @@
     'contatti.grid.orari':  'hours',
     'contatti.grid.days':   'mon – fri',
     'contatti.grid.appt':   'by appointment',
-    // article – sulla soglia
-    'art.kind':             'project',
-    'art.read':             '15 min read',
-    'art.location':         'ascoli piceno · palazzo malaspina',
-    'art.4mani':            'written together',
-    'art.h1':               'on the threshold <span class="s">/</span> ten months at palazzo <b>malaspina</b>',
-    'art.lede':             'You enter through a door that no longer exists. The travertine portal, returned to its original form after seven overlapping interventions, is the first gesture: a threshold that decides how much of the ancient remains visible, and how much allows new light through.',
+    // article pages — generic labels only (article content stays in its own language)
     'art.rail.committente': 'client',
     'art.rail.luogo':       'location',
     'art.rail.team':        'team',
@@ -197,7 +191,6 @@
     'art.copy':             'copy link',
     'art.back.label':       'back to the journal <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>',
     'art.back.title':       'all the <b>writings</b>',
-    'art.bio':              '<strong>s. cibelli + p. guadagno</strong> architects. based in Troia (FG) since 2000, after graduating from La Sapienza in Rome. They work on conservation restoration, architectural design and design. In 2000 they participated in the Venice Biennale.',
   };
 
   const _itCache = {};

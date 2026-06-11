@@ -27,6 +27,15 @@ Ogni nuovo articolo deve essere pubblicato già tradotto in inglese. Il sistema:
 
 Esempio di riferimento: `post/sopralluogo-faeto-notturna.html`.
 
+## Pubblicazione social automatica
+Workflow `.github/workflows/social.yml`: quando un push su `main` **aggiunge** un
+nuovo file in `post/`, lo script `scripts/social_post.py` lo pubblica su Facebook
+e Instagram (foto hero + titolo + lede + link). Richiede i GitHub Secrets
+`META_PAGE_TOKEN`, `FB_PAGE_ID`, `IG_USER_ID`; senza secret lo step viene saltato
+senza errori. Il template `post/articolo.html` non viene mai pubblicato.
+Gli articoli si pubblicano sui social SOLO dopo revisione dell'utente (il push
+su main È l'atto di pubblicazione approvato).
+
 ## Animazioni
 - La transizione `.b-wipe` usa la classe `is-on` per coprire lo schermo durante la navigazione.
 - Su Safari mobile il BFCache può ripristinare la pagina con il velo ancora attivo (schermo nero). Il fix è il listener `pageshow` con `e.persisted` in `blog.js`.

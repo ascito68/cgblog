@@ -66,7 +66,7 @@
           </svg>
         </span>
         <input data-search type="search" placeholder="cerca una parola, un cantiere, un autore…" aria-label="cerca">
-        <span class="b-search__count" data-count>03 scritture</span>
+        <span class="b-search__count" data-count>04 scritture</span>
       </label>
       <div class="b-filters" role="tablist">
         <button data-filter="tutti" class="is-on" type="button" data-i18n="filter.tutti">tutti</button>
@@ -107,13 +107,13 @@
         </div>
       </a>
 
-      <!-- layout B — foto sinistra (mirror) -->
-      <a class="b-entry is-mirror" href="post/articolo.html" data-kind="" data-tags="">
+      <!-- layout B — foto sinistra (mirror) · template progetto -->
+      <a class="b-entry is-mirror" href="post/articolo.html" data-kind="progetto" data-tags="progetto">
         <div class="b-entry__sweep"></div>
         <div class="b-entry__num">—<em>mese anno</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind">categoria</span>
+            <span class="kind">progetto</span>
             <span>— min</span>
             <span>luogo</span>
           </div>
@@ -133,13 +133,13 @@
         </div>
       </a>
 
-      <!-- layout C — solo testo -->
-      <a class="b-entry is-textonly" href="post/articolo.html" data-kind="" data-tags="">
+      <!-- layout C — solo testo · template riflessioni -->
+      <a class="b-entry is-textonly" href="post/articolo.html" data-kind="riflessioni" data-tags="riflessioni">
         <div class="b-entry__sweep"></div>
         <div class="b-entry__num">—<em>mese anno</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind">categoria</span>
+            <span class="kind">riflessioni</span>
             <span>— min</span>
           </div>
           <h2 class="b-entry__title">
@@ -152,6 +152,32 @@
             <span class="b-entry__read">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">autore</span>
           </div>
+        </div>
+      </a>
+
+      <!-- layout A — foto destra · template pubblicazioni -->
+      <a class="b-entry" href="post/articolo.html" data-kind="pubblicazioni" data-tags="pubblicazioni">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">—<em>mese anno</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind">pubblicazioni</span>
+            <span>— min</span>
+            <span>luogo</span>
+          </div>
+          <h2 class="b-entry__title">
+            titolo <span class="s">/</span> <b>sottotitolo</b>
+          </h2>
+          <p class="b-entry__lede">
+            testo introduttivo dell'articolo.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">autore</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot id="entry-04" placeholder="immagine articolo"></image-slot>
         </div>
       </a>
 

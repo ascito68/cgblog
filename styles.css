@@ -60,10 +60,11 @@ html, body {
   content: "";
   position: absolute;
   left: 50%; top: 0; bottom: 0;
-  width: 1px;
+  width: 2px;
   background: var(--accent);
-  opacity: 0.16;
+  opacity: 0.38;
   transform: translateX(-50%);
+  filter: blur(0.5px);
 }
 .b-ambient::after {
   content: "";

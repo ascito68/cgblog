@@ -148,6 +148,7 @@
     // shared nav
     'nav.lavori':           'works',
     'nav.diario':           'journal',
+    'nav.software':         'software',
     'nav.contatti':         'contacts',
     // shared footer links
     'foot.link.profilo':    'profile',

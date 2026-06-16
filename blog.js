@@ -105,80 +105,32 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
-  // ─── newsletter subscription (MailerLite, script ufficiale) ──
-  // Iniettiamo fuori schermo la struttura form COMPLETA generata da
-  // MailerLite (con le classi ml-validate-* richieste dal loro JS) e
-  // carichiamo webforms.min.js, che gestisce l'invio reale e la callback
-  // di successo. I form visibili del sito delegano a quello nascosto.
-  const ML_SUFFIX  = '42687313';
-  const ML_ACTION  = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
-  const ML_SCRIPT  = 'https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519';
+  // ─── newsletter subscription (MailerLite — fetch POST) ───────
+  const ML_SUBSCRIBE = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
 
-  const mlHost = document.createElement('div');
-  mlHost.setAttribute('aria-hidden', 'true');
-  // fuori schermo ma NON display:none (lo script ignora i form nascosti)
-  mlHost.style.cssText = 'position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;';
-  mlHost.innerHTML = `
-    <div id="mlb2-${ML_SUFFIX}" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-${ML_SUFFIX}">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-            <form class="ml-block-form" action="${ML_ACTION}" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" name="ml-submit" value="1">
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Subscribe</button>
-                <button disabled="disabled" style="display:none;" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span>
-                </button>
-              </div>
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-          <div class="ml-form-successBody row-success" style="display:none"></div>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(mlHost);
-
-  // callback invocata da webforms.min.js a iscrizione riuscita
-  window['ml_webform_success_' + ML_SUFFIX] = function() {
-    document.querySelectorAll('.b-foot__form').forEach(f => {
-      const inp = f.querySelector('input[type="email"]');
-      const btn = f.querySelector('button[type="submit"]');
-      if (inp) inp.value = '';
-      if (btn) { btn.textContent = 'grazie ·'; btn.disabled = false; }
-    });
-  };
-
-  // carica lo script ufficiale MailerLite (gestisce l'invio cross-origin)
-  const mlScript = document.createElement('script');
-  mlScript.src = ML_SCRIPT;
-  mlScript.async = true;
-  document.body.appendChild(mlScript);
-
-  // i form visibili delegano al form MailerLite nascosto
   document.querySelectorAll('.b-foot__form').forEach(form => {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const input = this.querySelector('input[type="email"]');
       const btn   = this.querySelector('button[type="submit"]');
       const email = (input?.value || '').trim();
       if (!email) return;
+      btn.disabled = true;
       btn.textContent = 'invio ·';
-      const he = mlHost.querySelector('input[name="fields[email]"]');
-      const hs = mlHost.querySelector('.ml-form-embedSubmit button.primary');
-      if (he && hs) {
-        he.value = email;
-        he.dispatchEvent(new Event('input',  { bubbles: true }));
-        he.dispatchEvent(new Event('change', { bubbles: true }));
-        hs.click();
+      try {
+        const resp = await fetch(ML_SUBSCRIBE, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body:    new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' }),
+        });
+        const data = await resp.json();
+        input.value = '';
+        btn.textContent = data.success ? 'grazie ·' : 'errore ·';
+        btn.disabled    = false;
+      } catch (err) {
+        console.error('[ML]', err);
+        btn.textContent = 'errore ·';
+        btn.disabled    = false;
       }
     });
   });

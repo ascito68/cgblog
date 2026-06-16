@@ -105,38 +105,11 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
-  // ─── newsletter subscription (MailerLite — JSONP) ────────────
-  // L'endpoint MailerLite è servito via JSONP (vedi path /jsonp/): inviamo
-  // l'iscrizione con un <script> cross-origin, così evitiamo del tutto i
-  // problemi di CORS dei POST fetch da pagina statica.
+  // ─── newsletter subscription (MailerLite) ────────────────────
+  // MailerLite restituisce JSON (non JSONP) → né onload né onerror
+  // scattano in modo affidabile. La richiesta <script> raggiunge però
+  // il server e registra l'iscrizione: mostriamo conferma dopo 800ms.
   const ML_SUBSCRIBE = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
-
-  function mlSubscribe(email, done) {
-    const cb = 'ml_cb_' + Date.now();
-    const script = document.createElement('script');
-    let settled = false;
-    const finish = (ok) => {
-      if (settled) return;
-      settled = true;
-      delete window[cb];
-      if (script.parentNode) script.parentNode.removeChild(script);
-      done(ok);
-    };
-    window[cb] = () => finish(true);
-    const params = new URLSearchParams({
-      'fields[email]': email,
-      'ml-submit': '1',
-      'anticsrf': 'true',
-      'callback': cb,
-    });
-    script.src = ML_SUBSCRIBE + '?' + params.toString();
-    // anche se il callback non scatta, la GET registra comunque l'iscrizione:
-    // mostriamo conferma sia onload sia onerror, con un timeout di sicurezza.
-    script.onload  = () => finish(true);
-    script.onerror = () => finish(true);
-    setTimeout(() => finish(true), 6000);
-    document.body.appendChild(script);
-  }
 
   document.querySelectorAll('.b-foot__form').forEach(form => {
     form.addEventListener('submit', function(e) {
@@ -147,10 +120,15 @@
       if (!email) return;
       btn.disabled = true;
       btn.textContent = 'invio ·';
-      mlSubscribe(email, () => {
-        input.value = '';
-        btn.textContent = 'grazie ·';
+      // invia via script tag (bypassa CORS)
+      const params = new URLSearchParams({
+        'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true',
       });
+      const s = document.createElement('script');
+      s.src = ML_SUBSCRIBE + '?' + params.toString();
+      document.body.appendChild(s);
+      // conferma dopo 800ms indipendentemente dalla risposta del server
+      setTimeout(() => { input.value = ''; btn.textContent = 'grazie ·'; }, 800);
     });
   });
 

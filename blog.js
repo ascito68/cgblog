@@ -84,6 +84,22 @@
   });
   recount();
 
+  // ─── mobile menu ─────────────────────────────────────────────
+  const menuBtn = document.querySelector('.b-head__menu');
+  const headNav = document.querySelector('.b-head__nav');
+  if (menuBtn && headNav) {
+    menuBtn.addEventListener('click', () => {
+      const open = headNav.classList.toggle('is-open');
+      menuBtn.textContent = open ? '×' : 'menu';
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.b-head') && headNav.classList.contains('is-open')) {
+        headNav.classList.remove('is-open');
+        menuBtn.textContent = 'menu';
+      }
+    });
+  }
+
   // ─── slash-wipe outbound transition ──────────────────────────
   const wipe = document.querySelector('.b-wipe');
   if (wipe) {

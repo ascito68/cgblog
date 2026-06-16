@@ -139,6 +139,20 @@ html, body {
   text-transform: lowercase;
 }
 .b-head__lang:hover { color: var(--cg-nero); }
+.b-head__menu {
+  display: none;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--mute);
+  cursor: pointer;
+  text-transform: lowercase;
+  padding: 0;
+  line-height: 1;
+}
+.b-head__menu:hover { color: var(--cg-nero); }
 
 /* ─── banner ─────────────────────────────────────────────────── */
 
@@ -893,8 +907,24 @@ html, body {
 /* ─── responsive ───────────────────────────────────────────────── */
 
 @media (max-width: 920px) {
-  .b-head { grid-template-columns: 1fr auto; gap: 12px; }
+  .b-head { grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; }
   .b-head__nav { display: none; }
+  .b-head__nav.is-open {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    padding: 14px 0 6px;
+    border-top: 1px solid var(--line);
+    gap: 0;
+  }
+  .b-head__nav.is-open a {
+    padding: 11px 0;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid var(--line);
+  }
+  .b-head__nav.is-open a:last-child { border-bottom: none; }
+  .b-head__menu { display: block; }
   .b-banner { grid-template-columns: 1fr; gap: 36px; padding: 8vh var(--bx) 6vh; }
   .b-toolbar { grid-template-columns: 1fr; gap: 16px; top: 56px; }
   .b-entry,

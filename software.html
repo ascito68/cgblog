@@ -4,12 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C/G LightCalc — Cibelli / Guadagno architetti</title>
-<meta name="description" content="C/G LightCalc — software per il calcolo illuminotecnico sviluppato da Cibelli / Guadagno architetti.">
+<meta name="description" content="C/G LightCalc — strumento per il calcolo illuminotecnico EN 12464-1 e EN 13201, report PDF e DOCX professionali. Sviluppato da Cibelli / Guadagno architetti.">
 <link rel="stylesheet" href="styles.css">
-<script src="image-slot.js" defer></script>
 <script src="blog.js?v=20260616" defer></script>
 </head>
 <body data-screen-label="software">
+<script>
+window.PAGE_EN = {
+  'p.kind':        'software',
+  'p.status':      'in development',
+  'p.h1':          'C/G LightCalc <span class="s">/</span> lighting <b>calculations</b>',
+  'p.lede':        'Everything needed for lighting design. Complete tools for regulatory compliance verification, from the design phase to final documentation for the client and works manager.',
+  'p.rail.tipo':   'lighting calculations',
+  'p.rail.stato':  'in development',
+  'p.rail.autore': 'cibelli / guadagno',
+  'p.p1':          'C/G LightCalc was born out of a concrete need: during restoration and design projects, verifying lighting parameters often requires complex tools or repetitive manual calculations. This software simplifies the process, delivering reliable results quickly.',
+  'p.h2.feat':     'what it <b>calculates</b>',
+  'p.f1':          '<strong>EN 12464-1 — interiors.</strong> Point-by-point calculation of Em and uniformity U0. Complex geometries: barrel vaults and cross vaults. Spencer IRM method. Immediate compliance indicators.',
+  'p.f2':          '<strong>EN 13201 — road lighting.</strong> ME, CE, S/P classes. Em, Emin, U0, Rg ratio. UNI 11248 and 6 regional anti-light-pollution laws (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) with CCT verification.',
+  'p.f3':          '<strong>Spencer IRM — reflected component.</strong> Spencer spherical cavity formula. Inter-reflections on walls, ceiling, floor.',
+  'p.f4':          '<strong>IES / LDT photometric library.</strong> IES (IESNA LM-63) and LDT (EULUMDAT) formats. Polar diagram. StripLED in lm/m. Up to 4 luminaire types.',
+  'p.f5':          '<strong>Advanced positioning and visualisation.</strong> 4 modes: grid by number, by spacing, graphic cell selection, click on calibrated floor plan (2-point metric calibration). Views: isolux, heatmap, 3D surface.',
+  'p.f6':          '<strong>Professional PDF and DOCX reports.</strong> ReportLab (PDF) and python-docx (DOCX). Floor plan on cover, results tables, isolux charts, verification report. JSON save.',
+  'p.h2.method':   'the <b>method</b>',
+  'p.p.method':    'Each module applies its reference standard — EN 12464-1 for interiors, EN 13201 for roads — without shortcuts: point-by-point for workplane illuminance, Spencer IRM for the reflected component, empirical formulas for road lighting classes. Every intermediate value is shown and can be checked.',
+  'p.h2.stato':    'project <b>status</b>',
+  'p.p.stato':     'The software is currently in development. A beta version will be available to studio collaborators in the coming months. For information or to be notified at release, write to us.',
+  'p.pull':        'light is not measured in lux alone. <em>it is listened to.</em>',
+  'p.pull.src':    '— project notes',
+};
+</script>
 <div class="b-page">
 
   <div class="b-ambient" aria-hidden="true">
@@ -36,56 +60,92 @@
       <div class="b-art-head__num">——</div>
       <div class="b-art-head__body">
         <div class="b-art-head__meta">
-          <span class="kind" data-i18n="software.kind">software</span>
-          <span data-i18n="software.status">in sviluppo</span>
+          <span class="kind" data-i18n="p.kind">software</span>
+          <span data-i18n="p.status">in sviluppo</span>
           <span>cibelli / guadagno</span>
         </div>
-        <h1 class="b-art-head__title" data-i18n="software.h1">
+        <h1 class="b-art-head__title" data-i18n="p.h1">
           C/G LightCalc <span class="s">/</span> calcolo <b>illuminotecnico</b>
         </h1>
-        <p class="b-art-head__lede" data-i18n="software.lede">
-          uno strumento per il calcolo illuminotecnico sviluppato internamente allo studio.
-          nato dalla necessità quotidiana di verificare rapidamente i parametri di illuminazione
-          naturale e artificiale nei progetti di restauro e progettazione.
+        <p class="b-art-head__lede" data-i18n="p.lede">
+          tutto ciò che serve per la progettazione illuminotecnica.
+          strumenti completi per la verifica di conformità normativa,
+          dalla fase di progetto alla documentazione finale per il cliente e la Direzione Lavori.
         </p>
       </div>
     </section>
 
     <div class="b-art-body">
       <aside class="b-art-body__rail" aria-label="metadati">
-        <div><strong>nome</strong><span data-i18n="software.rail.nome">C/G LightCalc</span></div>
-        <div><strong>tipo</strong><span data-i18n="software.rail.tipo">calcolo illuminotecnico</span></div>
-        <div><strong>stato</strong><span data-i18n="software.rail.stato">in sviluppo</span></div>
-        <div><strong>autore</strong><span data-i18n="software.rail.autore">cibelli / guadagno</span></div>
+        <div><strong>nome</strong><span>C/G LightCalc</span></div>
+        <div><strong>tipo</strong><span data-i18n="p.rail.tipo">calcolo illuminotecnico</span></div>
+        <div><strong>stato</strong><span data-i18n="p.rail.stato">in sviluppo</span></div>
+        <div><strong>autore</strong><span data-i18n="p.rail.autore">cibelli / guadagno</span></div>
       </aside>
 
       <div class="b-art-body__main">
-        <p data-i18n="software.p1">
+        <p data-i18n="p.p1">
           C/G LightCalc nasce da un'esigenza concreta: durante i progetti di restauro
           e progettazione, la verifica dei parametri illuminotecnici richiede spesso
           strumenti complessi o calcoli manuali ripetitivi. questo software semplifica
           il processo, restituendo risultati affidabili in tempi rapidi.
         </p>
 
-        <h2 data-i18n="software.h2.cosa">cosa <b>calcola</b></h2>
-        <p data-i18n="software.p2">
-          [descrizione delle funzionalità — da completare]
+        <h2 data-i18n="p.h2.feat">cosa <b>calcola</b></h2>
+        <p data-i18n="p.f1">
+          <strong>EN 12464-1 — interni.</strong>
+          calcolo punto per punto di Em e uniformità U0.
+          geometrie complesse: volte a botte e crociera.
+          metodo IRM Spencer. indicatori di conformità immediati.
         </p>
-
-        <h2 data-i18n="software.h2.come">come <b>funziona</b></h2>
-        <p data-i18n="software.p3">
-          [descrizione del metodo di calcolo — da completare]
+        <p data-i18n="p.f2">
+          <strong>EN 13201 — illuminazione stradale.</strong>
+          classi ME, CE, S/P. Em, Emin, U0, rapporto Rg.
+          UNI 11248 e 6 leggi regionali antiinquinamento luminoso
+          (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana)
+          con verifica CCT.
+        </p>
+        <p data-i18n="p.f3">
+          <strong>IRM Spencer — componente riflessa.</strong>
+          formula cavità sferica di Spencer.
+          interriflessioni su pareti, soffitto, pavimento.
+        </p>
+        <p data-i18n="p.f4">
+          <strong>libreria fotometrica IES / LDT.</strong>
+          formati IES (IESNA LM-63) e LDT (EULUMDAT).
+          diagramma polare. StripLED in lm/m. fino a 4 tipi di apparecchio.
+        </p>
+        <p data-i18n="p.f5">
+          <strong>posizionamento e visualizzazione avanzata.</strong>
+          4 modalità: griglia per numero, per interasse, selezione grafica per cella,
+          click su planimetria reale (calibrazione metrica a 2 punti).
+          viste: isolux, heatmap, superficie 3D.
+        </p>
+        <p data-i18n="p.f6">
+          <strong>report PDF e DOCX professionali.</strong>
+          ReportLab (PDF) e python-docx (DOCX).
+          planimetria in copertina, tavole risultati, grafici isolux, relazione di verifica.
+          salvataggio .json.
         </p>
       </div>
 
       <blockquote class="b-art-pull">
-        <span data-i18n="software.pull">la luce non si misura solo in lux. <em>si ascolta.</em></span>
-        <span class="src" data-i18n="software.pull.src">— note di progetto</span>
+        <span data-i18n="p.pull">la luce non si misura solo in lux. <em>si ascolta.</em></span>
+        <span class="src" data-i18n="p.pull.src">— note di progetto</span>
       </blockquote>
 
       <div class="b-art-body__main">
-        <h2 data-i18n="software.h2.stato">stato <b>del progetto</b></h2>
-        <p data-i18n="software.p4">
+        <h2 data-i18n="p.h2.method">il <b>metodo</b></h2>
+        <p data-i18n="p.p.method">
+          ogni modulo applica la norma di riferimento — EN 12464-1 per gli interni,
+          EN 13201 per le strade — senza scorciatoie: punto per punto per l'illuminamento
+          sul piano di lavoro, IRM Spencer per la componente riflessa, formule empiriche
+          per le classi di illuminazione stradale. ogni valore intermedio è visibile
+          e verificabile.
+        </p>
+
+        <h2 data-i18n="p.h2.stato">stato del <b>progetto</b></h2>
+        <p data-i18n="p.p.stato">
           il software è attualmente in fase di sviluppo. una versione beta sarà
           disponibile per i collaboratori dello studio nei prossimi mesi.
           per informazioni o per essere avvisati al rilascio, scriveteci.

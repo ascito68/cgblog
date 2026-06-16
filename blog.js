@@ -233,7 +233,7 @@
     'art.share':            'share',
     'art.copy':             'copy link',
     'art.back.label':       'back to the journal <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>',
-    'art.back.title':       'all the <b>writings</b>',
+    'art.back.title':       'all the <b>posts</b>',
   };
 
   // per-page translations: each page (article) can define its own

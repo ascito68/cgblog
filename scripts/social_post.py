@@ -80,7 +80,8 @@ def publish(path):
         print(f"· {name}: titolo o lede mancanti, salto")
         return
     link = f"{SITE}/post/{name}"
-    caption = f"{title}\n\n{lede}\n\nLeggi sul diario: {link}"
+    caption_fb = f"{title}\n\n{lede}\n\nLeggi sul diario: {link}"
+    caption_ig = f"{title}\n\n{lede}\n\nLink in bio"
 
     if image and not wait_for(image):
         print(f"· {name}: immagine non ancora online, salto")
@@ -88,14 +89,14 @@ def publish(path):
 
     # Facebook: post con foto (o solo link se l'articolo non ha foto)
     if image:
-        fb = api(f"{FB_PAGE_ID}/photos", {"url": image, "caption": caption})
+        fb = api(f"{FB_PAGE_ID}/photos", {"url": image, "caption": caption_fb})
     else:
-        fb = api(f"{FB_PAGE_ID}/feed", {"message": caption, "link": link})
+        fb = api(f"{FB_PAGE_ID}/feed", {"message": caption_fb, "link": link})
     print(f"· {name}: facebook ok ({fb.get('id') or fb.get('post_id')})")
 
     # Instagram: container + publish (richiede un'immagine)
     if image:
-        container = api(f"{IG_USER_ID}/media", {"image_url": image, "caption": caption})
+        container = api(f"{IG_USER_ID}/media", {"image_url": image, "caption": caption_ig})
         cid = container["id"]
         for _ in range(20):
             time.sleep(5)

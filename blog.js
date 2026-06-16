@@ -105,24 +105,30 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
-  // ─── newsletter subscription (MailerLite) ────────────────────
+  // ─── newsletter subscription (MailerLite — hidden-iframe POST) ──
+  // Form POST via iframe nascosto: nessun problema CORS, funziona ovunque.
+  const ML_URL = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
+  const mlFrame = document.createElement('iframe');
+  mlFrame.name = 'ml-frame';
+  mlFrame.style.cssText = 'display:none;position:absolute;width:0;height:0;border:0;';
+  mlFrame.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(mlFrame);
+
   document.querySelectorAll('.b-foot__form').forEach(form => {
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    form.action = ML_URL;
+    form.method = 'post';
+    form.target = 'ml-frame';
+    const emailInput = form.querySelector('input[type="email"]');
+    if (emailInput) emailInput.name = 'fields[email]';
+    [['ml-submit','1'],['anticsrf','true']].forEach(([n,v]) => {
+      const h = document.createElement('input');
+      h.type = 'hidden'; h.name = n; h.value = v;
+      form.appendChild(h);
+    });
+    form.addEventListener('submit', function() {
       const input = this.querySelector('input[type="email"]');
       const btn   = this.querySelector('button[type="submit"]');
-      const email = (input.value || '').trim();
-      if (!email) return;
-      btn.disabled = true;
-      try {
-        await fetch('https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe', {
-          method: 'POST',
-          mode:   'no-cors',
-          body:   new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' }),
-        });
-      } catch (_) { /* rete non disponibile — mostriamo grazie uguale */ }
-      input.value     = '';
-      btn.textContent = 'grazie ·';
+      setTimeout(() => { input.value = ''; btn.textContent = 'grazie ·'; }, 400);
     });
   });
 

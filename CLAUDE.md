@@ -36,6 +36,9 @@ senza errori. Il template `post/articolo.html` non viene mai pubblicato.
 Gli articoli si pubblicano sui social SOLO dopo revisione dell'utente (il push
 su main È l'atto di pubblicazione approvato).
 
+## Sicurezza
+Non condividere mai GitHub Personal Access Token (formato `ghp_...`) né altri token/secret nella chat o nel codice. Se l'utente li invia per errore, avvisare di revocarli immediatamente.
+
 ## Ordine degli articoli in index.html
 Il nuovo articolo va sempre **in testa** alla lista `<section class="b-list">`, prima di tutti gli altri.
 Le chiavi `p.eN.*` nel `PAGE_EN` di index seguono l'ordine: e1 = più recente, e2 = secondo, ecc.

@@ -105,30 +105,62 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
-  // ─── newsletter subscription (MailerLite — hidden-iframe POST) ──
-  // Form POST via iframe nascosto: nessun problema CORS, funziona ovunque.
-  const ML_URL = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
-  const mlFrame = document.createElement('iframe');
-  mlFrame.name = 'ml-frame';
-  mlFrame.style.cssText = 'display:none;position:absolute;width:0;height:0;border:0;';
-  mlFrame.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(mlFrame);
+  // ─── newsletter subscription (MailerLite — via loro JS ufficiale) ──
+  // Crea nel DOM un form nascosto compatibile con MailerLite; il loro JS
+  // gestisce l'invio reale. I nostri form visibili delegano a quello nascosto.
+  const ML_ID     = '42687313';
+  const ML_ACTION = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
 
-  document.querySelectorAll('.b-foot__form').forEach(form => {
-    form.action = ML_URL;
-    form.method = 'post';
-    form.target = 'ml-frame';
-    const emailInput = form.querySelector('input[type="email"]');
-    if (emailInput) emailInput.name = 'fields[email]';
-    [['ml-submit','1'],['anticsrf','true']].forEach(([n,v]) => {
-      const h = document.createElement('input');
-      h.type = 'hidden'; h.name = n; h.value = v;
-      form.appendChild(h);
+  const mlWrap = document.createElement('div');
+  mlWrap.id        = `mlb2-${ML_ID}`;
+  mlWrap.className = `ml-form-embedContainer ml-subscribe-form ml-subscribe-form-${ML_ID}`;
+  mlWrap.setAttribute('aria-hidden', 'true');
+  mlWrap.style.cssText = 'display:none;position:absolute;width:0;height:0;overflow:hidden;';
+  mlWrap.innerHTML = `
+    <div class="ml-form-embedWrapper embedForm">
+      <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+        <form class="ml-block-form" action="${ML_ACTION}" data-code="" method="post" target="_blank">
+          <input id="ml-hidden-email" type="email" name="fields[email]" placeholder="" aria-label="email">
+          <input type="hidden" name="ml-submit" value="1">
+          <div class="ml-form-embedSubmit">
+            <button id="ml-hidden-btn" type="submit">ok</button>
+            <button disabled style="display:none" type="button" class="loading">
+              <span class="sr-only">Loading...</span>
+            </button>
+          </div>
+          <input type="hidden" name="anticsrf" value="true">
+        </form>
+      </div>
+      <div class="ml-form-successBody row-success" style="display:none"></div>
+    </div>`;
+  document.body.appendChild(mlWrap);
+
+  // callback chiamata da MailerLite al successo
+  window[`ml_webform_success_${ML_ID}`] = function() {
+    document.querySelectorAll('.b-foot__form').forEach(f => {
+      const inp = f.querySelector('input[type="email"]');
+      const btn = f.querySelector('button[type="submit"]');
+      if (inp) inp.value = '';
+      if (btn) btn.textContent = 'grazie ·';
     });
-    form.addEventListener('submit', function() {
-      const input = this.querySelector('input[type="email"]');
-      const btn   = this.querySelector('button[type="submit"]');
-      setTimeout(() => { input.value = ''; btn.textContent = 'grazie ·'; }, 400);
+  };
+
+  // carica lo script MailerLite una sola volta
+  const mlScript    = document.createElement('script');
+  mlScript.src      = 'https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519';
+  mlScript.type     = 'text/javascript';
+  mlScript.async    = true;
+  document.head.appendChild(mlScript);
+
+  // i form visibili delegano al form nascosto
+  document.querySelectorAll('.b-foot__form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = (this.querySelector('input[type="email"]')?.value || '').trim();
+      if (!email) return;
+      const hEmail = document.getElementById('ml-hidden-email');
+      const hBtn   = document.getElementById('ml-hidden-btn');
+      if (hEmail && hBtn) { hEmail.value = email; hBtn.click(); }
     });
   });
 

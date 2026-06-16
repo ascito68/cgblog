@@ -105,33 +105,41 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
-  // ─── newsletter subscription (MailerLite — fetch POST) ───────
+  // ─── newsletter subscription (MailerLite — POST in iframe) ───
+  // POST nativo verso un iframe nascosto: nessun CORS, nessun parsing
+  // JSON (la risposta resta dentro l'iframe), quindi nessun errore di
+  // script. È il metodo più affidabile per un sito statico.
   const ML_SUBSCRIBE = 'https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe';
 
+  const mlFrame = document.createElement('iframe');
+  mlFrame.name = 'ml_target';
+  mlFrame.setAttribute('aria-hidden', 'true');
+  mlFrame.style.cssText = 'position:absolute;left:-9999px;top:0;width:0;height:0;border:0;';
+  document.body.appendChild(mlFrame);
+
   document.querySelectorAll('.b-foot__form').forEach(form => {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       const input = this.querySelector('input[type="email"]');
       const btn   = this.querySelector('button[type="submit"]');
       const email = (input?.value || '').trim();
       if (!email) return;
-      btn.disabled = true;
-      btn.textContent = 'invio ·';
-      try {
-        const resp = await fetch(ML_SUBSCRIBE, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body:    new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' }),
-        });
-        const data = await resp.json();
-        input.value = '';
-        btn.textContent = data.success ? 'grazie ·' : 'errore ·';
-        btn.disabled    = false;
-      } catch (err) {
-        console.error('[ML]', err);
-        btn.textContent = 'errore ·';
-        btn.disabled    = false;
-      }
+      // form temporaneo che invia il POST dentro l'iframe nascosto
+      const tmp = document.createElement('form');
+      tmp.action = ML_SUBSCRIBE;
+      tmp.method = 'post';
+      tmp.target = 'ml_target';
+      tmp.style.display = 'none';
+      tmp.innerHTML =
+        '<input name="fields[email]">' +
+        '<input name="ml-submit" value="1">' +
+        '<input name="anticsrf" value="true">';
+      tmp.querySelector('input[name="fields[email]"]').value = email;
+      document.body.appendChild(tmp);
+      tmp.submit();
+      setTimeout(() => tmp.remove(), 2000);
+      input.value = '';
+      btn.textContent = 'grazie ·';
     });
   });
 

@@ -105,6 +105,27 @@
   // ─── reveal-from-transition on article pages ─────────────────
   // (incoming pages get a soft fade-in via CSS; nothing to do here)
 
+  // ─── newsletter subscription (MailerLite) ────────────────────
+  document.querySelectorAll('.b-foot__form').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const input = this.querySelector('input[type="email"]');
+      const btn   = this.querySelector('button[type="submit"]');
+      const email = (input.value || '').trim();
+      if (!email) return;
+      btn.disabled = true;
+      try {
+        await fetch('https://assets.mailerlite.com/jsonp/2449988/forms/190452260255303327/subscribe', {
+          method: 'POST',
+          mode:   'no-cors',
+          body:   new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' }),
+        });
+      } catch (_) { /* rete non disponibile — mostriamo grazie uguale */ }
+      input.value     = '';
+      btn.textContent = 'grazie ·';
+    });
+  });
+
   // ─── language toggle ─────────────────────────────────────────
   const EN = {
     // shared nav

@@ -907,7 +907,7 @@ html, body {
 /* ─── responsive ───────────────────────────────────────────────── */
 
 @media (max-width: 920px) {
-  .b-art-head__title { font-size: clamp(28px, 8.5vw, 48px); overflow-wrap: break-word; }
+  .b-art-head__title { font-size: clamp(22px, 6.5vw, 48px); overflow-wrap: break-word; hyphens: auto; }
   .b-head { grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; }
   .b-head__nav { display: none; }
   .b-head__nav.is-open {

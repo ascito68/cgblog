@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#2c2820"/>
+  <!-- grid lines -->
+  <g stroke="#46413b" stroke-width="1.5" fill="none">
+    <line x1="96" y1="96"  x2="416" y2="96"/>
+    <line x1="96" y1="176" x2="416" y2="176"/>
+    <line x1="96" y1="256" x2="416" y2="256"/>
+    <line x1="96" y1="336" x2="416" y2="336"/>
+    <line x1="96" y1="416" x2="416" y2="416"/>
+    <line x1="96"  y1="96" x2="96"  y2="416"/>
+    <line x1="176" y1="96" x2="176" y2="416"/>
+    <line x1="256" y1="96" x2="256" y2="416"/>
+    <line x1="336" y1="96" x2="336" y2="416"/>
+    <line x1="416" y1="96" x2="416" y2="416"/>
+  </g>
+  <!-- gray outer dots -->
+  <g fill="#6a6358">
+    <circle cx="96"  cy="96"  r="11"/>
+    <circle cx="176" cy="96"  r="11"/>
+    <circle cx="256" cy="96"  r="11"/>
+    <circle cx="336" cy="96"  r="11"/>
+    <circle cx="416" cy="96"  r="11"/>
+    <circle cx="96"  cy="176" r="11"/>
+    <circle cx="416" cy="176" r="11"/>
+    <circle cx="96"  cy="256" r="11"/>
+    <circle cx="416" cy="256" r="11"/>
+    <circle cx="96"  cy="336" r="11"/>
+    <circle cx="416" cy="336" r="11"/>
+    <circle cx="96"  cy="416" r="11"/>
+    <circle cx="176" cy="416" r="11"/>
+    <circle cx="336" cy="416" r="11"/>
+    <circle cx="416" cy="416" r="11"/>
+  </g>
+  <!-- yellow inner 3×3 -->
+  <g fill="#f0a820">
+    <circle cx="176" cy="176" r="19"/>
+    <circle cx="256" cy="176" r="19"/>
+    <circle cx="336" cy="176" r="19"/>
+    <circle cx="176" cy="256" r="19"/>
+    <circle cx="336" cy="256" r="19"/>
+    <circle cx="176" cy="336" r="19"/>
+    <circle cx="256" cy="336" r="19"/>
+    <circle cx="336" cy="336" r="19"/>
+  </g>
+  <!-- bottom-center yellow (light spill) -->
+  <circle cx="256" cy="416" r="15" fill="#f0a820"/>
+  <!-- center: brightest point -->
+  <circle cx="256" cy="256" r="22" fill="#f5d26a"/>
+</svg>

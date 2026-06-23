@@ -36,6 +36,16 @@ senza errori. Il template `post/articolo.html` non viene mai pubblicato.
 Gli articoli si pubblicano sui social SOLO dopo revisione dell'utente (il push
 su main È l'atto di pubblicazione approvato).
 
+## Token Meta (social)
+Il `META_PAGE_TOKEN` attuale è un **Page Access Token permanente** (non scade mai).
+È stato generato il 23 giugno 2026 con la procedura:
+1. Graph API Explorer → Token utente (account personale) con permessi: `pages_show_list`, `pages_manage_posts`, `pages_read_engagement`, `instagram_basic`, `instagram_content_publish`
+2. Debugger → "Extend Access Token" (token utente esteso a 60 giorni)
+3. Explorer → `/me/accounts?fields=name,access_token` con il token esteso → copia `access_token` della pagina "Cibelli / Guadagno architetti"
+4. Debugger → verifica scadenza "Mai" → aggiornato GitHub Secret `META_PAGE_TOKEN`
+
+**Non serve più rinnovarlo.**
+
 ## Sicurezza
 Non condividere mai GitHub Personal Access Token (formato `ghp_...`) né altri token/secret nella chat o nel codice. Se l'utente li invia per errore, avvisare di revocarli immediatamente.
 

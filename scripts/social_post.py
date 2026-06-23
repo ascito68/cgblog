@@ -113,10 +113,10 @@ def publish(path):
     else:
         print(f"· {name}: nessuna immagine, instagram saltato")
 
-    # LinkedIn: link con anteprima articolo
+    # LinkedIn: foto caricata + link nel testo
     if LINKEDIN_TOKEN and LINKEDIN_PERSON_ID:
         try:
-            li = post_linkedin(title, lede, link)
+            li = post_linkedin(title, lede, link, image)
             print(f"· {name}: linkedin ok ({li.get('id', '')})")
         except urllib.error.HTTPError as e:
             print(f"· {name}: linkedin errore {e.code}: {e.read().decode()[:500]}")
@@ -129,21 +129,70 @@ def api_get(path):
         return json.load(r)
 
 
-def post_linkedin(title, lede, link):
+def linkedin_upload_image(image_url):
+    """Scarica l'immagine e la carica su LinkedIn, ritorna l'asset URN."""
+    with urllib.request.urlopen(image_url, timeout=60) as r:
+        image_data = r.read()
+        content_type = r.headers.get("Content-Type", "image/jpeg").split(";")[0]
+
+    register_payload = {
+        "registerUploadRequest": {
+            "recipes": ["urn:li:digitalmediaRecipe:feedshare-image"],
+            "owner": f"urn:li:person:{LINKEDIN_PERSON_ID}",
+            "serviceRelationships": [{"relationshipType": "OWNER", "identifier": "urn:li:userGeneratedContent"}],
+        }
+    }
+    req = urllib.request.Request(
+        f"{LINKEDIN_API}/assets?action=registerUpload",
+        data=json.dumps(register_payload).encode(),
+        headers={
+            "Authorization": f"Bearer {LINKEDIN_TOKEN}",
+            "Content-Type": "application/json",
+            "X-Restli-Protocol-Version": "2.0.0",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
+        reg = json.load(r)
+
+    upload_url = reg["value"]["uploadMechanism"]["com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest"]["uploadUrl"]
+    asset_urn = reg["value"]["asset"]
+
+    put_req = urllib.request.Request(
+        upload_url,
+        data=image_data,
+        method="PUT",
+        headers={"Authorization": f"Bearer {LINKEDIN_TOKEN}", "Content-Type": content_type},
+    )
+    with urllib.request.urlopen(put_req, timeout=120) as r:
+        pass
+
+    return asset_urn
+
+
+def post_linkedin(title, lede, link, image=None):
     text = f"{title}\n\n{lede}\n\nLeggi sul diario: {link}"
+
+    if image:
+        try:
+            asset_urn = linkedin_upload_image(image)
+            media = [{"status": "READY", "description": {"text": lede}, "media": asset_urn, "title": {"text": title}}]
+            media_category = "IMAGE"
+        except Exception as e:
+            print(f"  linkedin upload immagine fallito ({e}), uso link senza foto")
+            image = None
+
+    if not image:
+        media = [{"status": "READY", "originalUrl": link, "title": {"text": title}, "description": {"text": lede}}]
+        media_category = "ARTICLE"
+
     payload = {
         "author": f"urn:li:person:{LINKEDIN_PERSON_ID}",
         "lifecycleState": "PUBLISHED",
         "specificContent": {
             "com.linkedin.ugc.ShareContent": {
                 "shareCommentary": {"text": text},
-                "shareMediaCategory": "ARTICLE",
-                "media": [{
-                    "status": "READY",
-                    "originalUrl": link,
-                    "title": {"text": title},
-                    "description": {"text": lede},
-                }],
+                "shareMediaCategory": media_category,
+                "media": media,
             }
         },
         "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},

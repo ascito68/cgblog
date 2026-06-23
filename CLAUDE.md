@@ -29,10 +29,11 @@ Esempio di riferimento: `post/sopralluogo-faeto-notturna.html`.
 
 ## Pubblicazione social automatica
 Workflow `.github/workflows/social.yml`: quando un push su `main` **aggiunge** un
-nuovo file in `post/`, lo script `scripts/social_post.py` lo pubblica su Facebook
-e Instagram (foto hero + titolo + lede + link). Richiede i GitHub Secrets
-`META_PAGE_TOKEN`, `FB_PAGE_ID`, `IG_USER_ID`; senza secret lo step viene saltato
-senza errori. Il template `post/articolo.html` non viene mai pubblicato.
+nuovo file in `post/`, lo script `scripts/social_post.py` lo pubblica su Facebook,
+Instagram e LinkedIn (foto hero + titolo + lede + link). Richiede i GitHub Secrets
+`META_PAGE_TOKEN`, `FB_PAGE_ID`, `IG_USER_ID`, `LINKEDIN_TOKEN`, `LINKEDIN_PERSON_ID`;
+senza secret lo step viene saltato senza errori. Il template `post/articolo.html`
+non viene mai pubblicato.
 Gli articoli si pubblicano sui social SOLO dopo revisione dell'utente (il push
 su main È l'atto di pubblicazione approvato).
 
@@ -45,6 +46,18 @@ Il `META_PAGE_TOKEN` attuale è un **Page Access Token permanente** (non scade m
 4. Debugger → verifica scadenza "Mai" → aggiornato GitHub Secret `META_PAGE_TOKEN`
 
 **Non serve più rinnovarlo.**
+
+## Token LinkedIn (social)
+Il `LINKEDIN_TOKEN` è un **Access Token con scadenza ~60 giorni**.
+- `LINKEDIN_PERSON_ID`: `EB8kC9txYz` (da OpenID Connect `sub`, non cambia mai)
+- Scadenza attuale: ~22 agosto 2026
+
+Procedura di rinnovo (ogni ~60 giorni):
+1. LinkedIn Developer Portal → app → Auth → copia Client ID
+2. Apri nel browser: `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=780rpwwjh6gqpb&redirect_uri=https%3A%2F%2Flocalhost&scope=w_member_social%20openid%20profile&state=li123`
+3. Autorizza → copia `code=` dall'URL (scade in pochi secondi!)
+4. Esegui subito: `curl -s 'https://www.linkedin.com/oauth/v2/accessToken' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=authorization_code&code=CODICE&redirect_uri=https%3A%2F%2Flocalhost&client_id=780rpwwjh6gqpb&client_secret=WPL_AP1.TizRneL6vIaZbhJN.fore9A%3D%3D'`
+5. Copia `access_token` dalla risposta → aggiorna GitHub Secret `LINKEDIN_TOKEN`
 
 ## Sicurezza
 Non condividere mai GitHub Personal Access Token (formato `ghp_...`) né altri token/secret nella chat o nel codice. Se l'utente li invia per errore, avvisare di revocarli immediatamente.

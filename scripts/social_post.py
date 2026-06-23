@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Pubblica un nuovo articolo del diario su Facebook e Instagram.
+"""Pubblica un nuovo articolo del diario su Facebook, Instagram e LinkedIn.
 
 Uso: social_post.py post/nome-articolo.html [post/altro.html ...]
 
-Richiede tre variabili d'ambiente (GitHub Secrets):
-  META_PAGE_TOKEN  — Page Access Token (long-lived) dell'app Meta
-  FB_PAGE_ID       — id della pagina Facebook
-  IG_USER_ID       — id dell'account Instagram Business
+Richiede variabili d'ambiente (GitHub Secrets):
+  META_PAGE_TOKEN    — Page Access Token (long-lived) dell'app Meta
+  FB_PAGE_ID         — id della pagina Facebook
+  IG_USER_ID         — id dell'account Instagram Business
+  LINKEDIN_TOKEN     — Access Token LinkedIn (scade in ~60gg)
+  LINKEDIN_PERSON_ID — Person ID LinkedIn (da OpenID Connect sub)
 
 Se i secret non sono configurati, esce senza errore: il deploy
 del sito non deve mai fallire per colpa dei social.
@@ -21,10 +23,13 @@ import urllib.request
 
 SITE = "https://blog.cibellieguadagno.com"
 GRAPH = "https://graph.facebook.com/v21.0"
+LINKEDIN_API = "https://api.linkedin.com/v2"
 
 TOKEN = os.environ.get("META_PAGE_TOKEN", "")
 FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
 IG_USER_ID = os.environ.get("IG_USER_ID", "")
+LINKEDIN_TOKEN = os.environ.get("LINKEDIN_TOKEN", "")
+LINKEDIN_PERSON_ID = os.environ.get("LINKEDIN_PERSON_ID", "")
 
 
 def strip_tags(html):
@@ -108,11 +113,52 @@ def publish(path):
     else:
         print(f"· {name}: nessuna immagine, instagram saltato")
 
+    # LinkedIn: link con anteprima articolo
+    if LINKEDIN_TOKEN and LINKEDIN_PERSON_ID:
+        try:
+            li = post_linkedin(title, lede, link)
+            print(f"· {name}: linkedin ok ({li.get('id', '')})")
+        except urllib.error.HTTPError as e:
+            print(f"· {name}: linkedin errore {e.code}: {e.read().decode()[:500]}")
+
 
 def api_get(path):
     sep = "&" if "?" in path else "?"
     url = f"{GRAPH}/{path}{sep}access_token={TOKEN}"
     with urllib.request.urlopen(url, timeout=60) as r:
+        return json.load(r)
+
+
+def post_linkedin(title, lede, link):
+    text = f"{title}\n\n{lede}\n\nLeggi sul diario: {link}"
+    payload = {
+        "author": f"urn:li:person:{LINKEDIN_PERSON_ID}",
+        "lifecycleState": "PUBLISHED",
+        "specificContent": {
+            "com.linkedin.ugc.ShareContent": {
+                "shareCommentary": {"text": text},
+                "shareMediaCategory": "ARTICLE",
+                "media": [{
+                    "status": "READY",
+                    "originalUrl": link,
+                    "title": {"text": title},
+                    "description": {"text": lede},
+                }],
+            }
+        },
+        "visibility": {"com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"},
+    }
+    data = json.dumps(payload).encode()
+    req = urllib.request.Request(
+        f"{LINKEDIN_API}/ugcPosts",
+        data=data,
+        headers={
+            "Authorization": f"Bearer {LINKEDIN_TOKEN}",
+            "Content-Type": "application/json",
+            "X-Restli-Protocol-Version": "2.0.0",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
         return json.load(r)
 
 

@@ -39,10 +39,12 @@ jobs:
           echo "files=$FILES" >> "$GITHUB_OUTPUT"
           echo "Articoli da pubblicare: ${FILES:-nessuno}"
 
-      - name: Post to Facebook and Instagram
+      - name: Post to Facebook, Instagram and LinkedIn
         if: steps.new.outputs.files != ''
         env:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          LINKEDIN_TOKEN: ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
         run: python3 scripts/social_post.py ${{ steps.new.outputs.files }}

@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       files:
-        description: 'File da pubblicare (es. post/sopralluogo-faeto-notturna.html)'
+        description: 'File da pubblicare (es. post/faeto-piazza-avanza.html)'
         required: true
-        default: 'post/sopralluogo-faeto-notturna.html'
+        default: ''
 
 permissions:
   contents: read

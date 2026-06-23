@@ -19,7 +19,7 @@ import time
 import urllib.parse
 import urllib.request
 
-SITE = "https://ascito68.github.io/cgblog"
+SITE = "https://blog.cibellieguadagno.com"
 GRAPH = "https://graph.facebook.com/v21.0"
 
 TOKEN = os.environ.get("META_PAGE_TOKEN", "")
@@ -42,7 +42,7 @@ def extract(path):
     m = re.search(r'class="b-art-head__lede"[^>]*>(.*?)</p>', html, re.S)
     if m:
         lede = strip_tags(m.group(1))
-    m = re.search(r'<figure class="b-art-hero">.*?<img src="\.\./([^"]+)"', html, re.S)
+    m = re.search(r'<figure class="b-art-hero">.*?<(?:img|image-slot) src="\.\./([^"]+)"', html, re.S)
     if m:
         image = f"{SITE}/{m.group(1)}"
     return title, lede, image

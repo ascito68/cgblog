@@ -127,6 +127,8 @@ html, body {
 }
 .b-head__nav a:hover { color: var(--cg-nero); border-bottom-color: var(--accent); }
 .b-head__nav a.is-on { color: var(--cg-nero); border-bottom-color: var(--accent); }
+.b-head__nav-upload { opacity: 0.35; font-size: 13px !important; padding: 0 2px !important; border-bottom: none !important; }
+.b-head__nav-upload:hover { opacity: 1 !important; border-bottom: none !important; }
 .b-head__lang {
   justify-self: end;
   background: transparent;

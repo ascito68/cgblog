@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>upload foto — cıbellı/guadagno</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --nero: #2e2a26;
+  --bianco: #f5f3ef;
+  --tortora: #d4c8b0;
+  --tortora-mid: #a89986;
+  --tortora-deep: #6e6357;
+  --mute: #7a7268;
+  --line: rgba(46,42,38,0.12);
+  --accent: #a89986;
+  --ok: #4a7c59;
+  --err: #8b3a3a;
+  --r: 3px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  background: var(--bianco);
+  color: var(--nero);
+  min-height: 100dvh;
+  padding: 0 0 60px;
+}
+
+header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+header .logo { font-size: 15px; letter-spacing: 0.03em; }
+header .logo span { color: var(--tortora-deep); }
+header .sub { font-size: 12px; color: var(--mute); margin-left: auto; }
+
+section { padding: 28px 24px 0; }
+
+label { display: block; font-size: 12px; color: var(--mute); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  font: 300 16px/1 'Inter', sans-serif;
+  background: white;
+  color: var(--nero);
+  outline: none;
+  -webkit-appearance: none;
+}
+input:focus { border-color: var(--accent); }
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--nero);
+  color: white;
+  border: none;
+  border-radius: var(--r);
+  font: 400 15px/1 'Inter', sans-serif;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: 16px;
+}
+.btn:active { opacity: 0.8; }
+.btn.secondary { background: transparent; color: var(--mute); border: 1px solid var(--line); margin-top: 10px; }
+.btn:disabled { opacity: 0.4; }
+
+.drop-zone {
+  border: 1.5px dashed var(--tortora);
+  border-radius: var(--r);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+  transition: border-color .15s, background .15s;
+}
+.drop-zone.has-files { border-style: solid; border-color: var(--accent); background: #faf9f6; }
+.drop-zone p { font-size: 14px; color: var(--mute); margin-top: 6px; }
+.drop-zone .icon { font-size: 32px; margin-bottom: 8px; }
+.drop-zone input { display: none; }
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 14px;
+}
+.preview-grid .thumb {
+  aspect-ratio: 1;
+  background: var(--tortora);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.preview-grid .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.preview-grid .thumb .count {
+  position: absolute;
+  bottom: 3px; right: 4px;
+  background: rgba(46,42,38,.6);
+  color: white;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.field-group { margin-top: 20px; }
+
+.progress-list { margin-top: 16px; list-style: none; }
+.progress-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.progress-list li:last-child { border-bottom: none; }
+.progress-list .fname { flex: 1; color: var(--nero); word-break: break-all; }
+.progress-list .status { font-size: 12px; color: var(--mute); white-space: nowrap; }
+.progress-list .status.ok { color: var(--ok); }
+.progress-list .status.err { color: var(--err); }
+
+.result-box {
+  background: #eef4f0;
+  border: 1px solid #b8d4c0;
+  border-radius: var(--r);
+  padding: 14px;
+  margin-top: 20px;
+}
+.result-box p { font-size: 12px; color: var(--ok); margin-bottom: 8px; font-weight: 500; }
+.result-box code {
+  display: block;
+  font-size: 12px;
+  color: var(--nero);
+  line-height: 1.7;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  word-break: break-all;
+}
+
+.msg { padding: 12px 14px; border-radius: var(--r); font-size: 13px; margin-top: 16px; }
+.msg.err { background: #f9eded; color: var(--err); border: 1px solid #e8c4c4; }
+.msg.info { background: #f0ede8; color: var(--mute); border: 1px solid var(--line); }
+
+.token-hint { font-size: 12px; color: var(--mute); line-height: 1.5; margin-top: 8px; }
+.token-hint a { color: var(--tortora-deep); }
+
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo">cıbellı<span>/</span>guadagno</span>
+  <span class="sub">upload foto</span>
+</header>
+
+<!-- SETUP -->
+<div id="view-setup">
+  <section>
+    <div style="margin-bottom:28px;margin-top:4px;">
+      <p style="font-size:14px;color:var(--mute);line-height:1.6">
+        Inserisci il tuo GitHub Token per autorizzare l'upload. Verrà salvato solo su questo dispositivo.
+      </p>
+    </div>
+    <div class="field-group">
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="token-input" placeholder="ghp_..." autocomplete="off" autocorrect="off" spellcheck="false">
+      <p class="token-hint">
+        Genera un token su <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>
+        con permesso <strong>repo</strong> (Contents: read & write).
+      </p>
+    </div>
+    <button class="btn" id="btn-save-token">Salva e continua</button>
+  </section>
+</div>
+
+<!-- MAIN UPLOAD -->
+<div id="view-main" hidden>
+  <section>
+    <div class="field-group">
+      <label>Prefisso nome file</label>
+      <input type="text" id="prefix-input" placeholder="es. faeto-ipogeo" autocorrect="off" spellcheck="false">
+      <p style="font-size:11px;color:var(--mute);margin-top:5px;">
+        Le foto verranno salvate come <em>prefisso-1.jpg</em>, <em>prefisso-2.jpg</em>, …
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="drop-zone" id="drop-zone">
+      <div class="icon">📷</div>
+      <strong style="font-size:15px;">Seleziona foto</strong>
+      <p>dalla libreria o dalla fotocamera</p>
+      <input type="file" id="file-input" accept="image/*" multiple>
+    </div>
+    <div class="preview-grid" id="preview-grid"></div>
+  </section>
+
+  <section id="upload-section" style="display:none">
+    <button class="btn" id="btn-upload">Carica su GitHub</button>
+  </section>
+
+  <section id="progress-section" style="display:none">
+    <ul class="progress-list" id="progress-list"></ul>
+    <div class="result-box" id="result-box" style="display:none">
+      <p>✓ Upload completato — nomi file:</p>
+      <code id="result-names"></code>
+    </div>
+    <button class="btn secondary" id="btn-reset">Carica altre foto</button>
+  </section>
+
+  <section>
+    <button class="btn secondary" id="btn-logout" style="margin-top:12px;font-size:12px;">
+      Cambia token
+    </button>
+  </section>
+
+  <div id="main-msg"></div>
+</div>
+
+<script>
+const REPO   = 'ascito68/cgblog';
+const BRANCH = 'main';
+const FOLDER = 'img';
+const API    = 'https://api.github.com';
+const TOKEN_KEY = 'cg_gh_token';
+
+let files = [];
+
+// ── helpers ────────────────────────────────────────────────────────────────
+
+function slugify(s) {
+  return s.toLowerCase()
+    .replace(/[àáâä]/g, 'a').replace(/[èéêë]/g, 'e')
+    .replace(/[ìíîï]/g, 'i').replace(/[òóôö]/g, 'o')
+    .replace(/[ùúûü]/g, 'u')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function show(id)   { document.getElementById(id).hidden = false; document.getElementById(id).style.display = ''; }
+function hide(id)   { document.getElementById(id).hidden = true;  document.getElementById(id).style.display = 'none'; }
+
+// ── image optimization ──────────────────────────────────────────────────────
+
+function optimizeImage(file, maxPx = 2000, quality = 0.82) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      let { width, height } = img;
+      if (width > maxPx || height > maxPx) {
+        if (width >= height) { height = Math.round(height * maxPx / width); width = maxPx; }
+        else                 { width  = Math.round(width  * maxPx / height); height = maxPx; }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width; canvas.height = height;
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+      canvas.toBlob(blob => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+// ── github upload ───────────────────────────────────────────────────────────
+
+async function pushToGitHub(filename, base64, token) {
+  const path = `${FOLDER}/${filename}`;
+  const url  = `${API}/repos/${REPO}/contents/${encodeURIComponent(path)}`;
+  const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
+
+  let sha;
+  try {
+    const check = await fetch(url, { headers });
+    if (check.ok) sha = (await check.json()).sha;
+  } catch {}
+
+  const body = { message: `Add image ${filename}`, content: base64, branch: BRANCH };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(url, { method: 'PUT', headers, body: JSON.stringify(body) });
+  if (!res.ok) { const e = await res.json(); throw new Error(e.message || res.statusText); }
+}
+
+// ── views ───────────────────────────────────────────────────────────────────
+
+function showSetup() {
+  hide('view-main'); show('view-setup');
+}
+
+function showMain() {
+  hide('view-setup'); show('view-main');
+}
+
+// ── setup screen ─────────────────────────────────────────────────────────────
+
+document.getElementById('btn-save-token').addEventListener('click', () => {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t.startsWith('ghp_') && !t.startsWith('github_pat_')) {
+    alert('Il token deve iniziare con ghp_ o github_pat_'); return;
+  }
+  localStorage.setItem(TOKEN_KEY, t);
+  showMain();
+});
+
+document.getElementById('btn-logout').addEventListener('click', () => {
+  localStorage.removeItem(TOKEN_KEY);
+  showSetup();
+});
+
+// ── file selection ────────────────────────────────────────────────────────────
+
+const dropZone   = document.getElementById('drop-zone');
+const fileInput  = document.getElementById('file-input');
+const previewGrid = document.getElementById('preview-grid');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('has-files'); });
+dropZone.addEventListener('dragleave', () => { if (!files.length) dropZone.classList.remove('has-files'); });
+dropZone.addEventListener('drop', e => { e.preventDefault(); handleFiles(e.dataTransfer.files); });
+
+fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+
+function handleFiles(fileList) {
+  files = Array.from(fileList).filter(f => f.type.startsWith('image/'));
+  if (!files.length) return;
+
+  dropZone.classList.add('has-files');
+  dropZone.querySelector('.icon').textContent = '✓';
+  dropZone.querySelector('strong').textContent = `${files.length} foto selezionat${files.length > 1 ? 'e' : 'a'}`;
+  dropZone.querySelector('p').textContent = 'tocca per cambiare';
+
+  previewGrid.innerHTML = '';
+  files.slice(0, 6).forEach((f, i) => {
+    const div = document.createElement('div');
+    div.className = 'thumb';
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(f);
+    div.appendChild(img);
+    if (i === 5 && files.length > 6) {
+      const c = document.createElement('div');
+      c.className = 'count';
+      c.textContent = `+${files.length - 6}`;
+      div.appendChild(c);
+    }
+    previewGrid.appendChild(div);
+  });
+
+  show('upload-section');
+  hide('progress-section');
+  document.getElementById('result-box').style.display = 'none';
+}
+
+// ── upload ────────────────────────────────────────────────────────────────────
+
+document.getElementById('btn-upload').addEventListener('click', async () => {
+  const token  = localStorage.getItem(TOKEN_KEY);
+  if (!token) { showSetup(); return; }
+
+  const rawPrefix = document.getElementById('prefix-input').value.trim();
+  const prefix    = rawPrefix ? slugify(rawPrefix) : `foto-${new Date().toISOString().slice(0,10)}`;
+
+  hide('upload-section');
+  show('progress-section');
+
+  const list = document.getElementById('progress-list');
+  list.innerHTML = '';
+  const uploaded = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const filename = files.length === 1 ? `${prefix}.jpg` : `${prefix}-${i + 1}.jpg`;
+    const li = document.createElement('li');
+    li.innerHTML = `<span class="spinner"></span><span class="fname">${filename}</span><span class="status">ottimizzazione…</span>`;
+    list.appendChild(li);
+
+    const statusEl = li.querySelector('.status');
+    const spinnerEl = li.querySelector('.spinner');
+
+    try {
+      const b64 = await optimizeImage(files[i]);
+      statusEl.textContent = 'upload…';
+      await pushToGitHub(filename, b64, token);
+      spinnerEl.remove();
+      li.insertAdjacentHTML('afterbegin', '<span style="color:var(--ok);font-size:16px">✓</span>');
+      statusEl.textContent = 'ok';
+      statusEl.className = 'status ok';
+      uploaded.push(filename);
+    } catch (err) {
+      spinnerEl.remove();
+      li.insertAdjacentHTML('afterbegin', '<span style="color:var(--err);font-size:16px">✕</span>');
+      statusEl.textContent = err.message || 'errore';
+      statusEl.className = 'status err';
+    }
+  }
+
+  if (uploaded.length) {
+    const box = document.getElementById('result-box');
+    box.style.display = '';
+    document.getElementById('result-names').textContent = uploaded.join('\n');
+  }
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  files = [];
+  fileInput.value = '';
+  previewGrid.innerHTML = '';
+  dropZone.classList.remove('has-files');
+  dropZone.querySelector('.icon').textContent = '📷';
+  dropZone.querySelector('strong').textContent = 'Seleziona foto';
+  dropZone.querySelector('p').textContent = 'dalla libreria o dalla fotocamera';
+  hide('upload-section');
+  hide('progress-section');
+});
+
+// ── init ──────────────────────────────────────────────────────────────────────
+
+if (localStorage.getItem(TOKEN_KEY)) showMain(); else showSetup();
+</script>
+</body>
+</html>

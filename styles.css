@@ -691,6 +691,9 @@ html, body {
           mask: linear-gradient(to top right, transparent 0 62%, #000 62.4% 100%);
   pointer-events: none;
 }
+.b-art-hero.is-clean::after {
+  display: none;
+}
 .b-art-hero__cap {
   position: absolute;
   right: 0;

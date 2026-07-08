@@ -945,7 +945,8 @@ html, body {
   .b-art-tail,
   .b-next { grid-template-columns: 40px 1fr; gap: 14px; }
   .b-art-head__body { grid-column: 2; }
-  .b-art-body__rail { display: none; }
+  .b-art-body__rail,
+  .b-art-tail__rail { display: none; }
   .b-art-body__main { grid-column: 2; }
   .b-art-pull { grid-column: 2; padding-left: 18px; }
   .b-art-figure { grid-column: 2; grid-template-columns: 1fr; }

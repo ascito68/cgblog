@@ -693,15 +693,17 @@ html, body {
 }
 .b-art-hero__cap {
   position: absolute;
-  right: var(--bx);
-  bottom: 24px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 52px var(--bx) 18px;
   font-size: 10px;
   letter-spacing: var(--num-track);
   text-transform: lowercase;
-  color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
-  max-width: 240px;
+  color: rgba(255, 255, 255, 0.92);
   text-align: right;
+  background: linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .b-art-body {

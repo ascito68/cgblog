@@ -5,38 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>diario — Cibelli / Guadagno architetti</title>
 <meta name="description" content="diario dello studio Cibelli / Guadagno architetti — note dal cantiere, riflessioni, progetti.">
-<link rel="stylesheet" href="styles.css?v=20260616b">
+<link rel="stylesheet" href="styles.css?v=20260709">
 <script src="image-slot.js" defer></script>
-<script src="blog.js?v=20260616" defer></script>
+<script src="blog.js?v=20260709" defer></script>
 </head>
 <body data-screen-label="blog index">
 <script>
 /* traduzioni inglesi delle anteprime articoli — lette da blog.js */
 window.PAGE_EN = {
-  'p.e1.date':  '8 jul 2026',
-  'p.e1.kind':  'site',
+  'p.e1.date':  'jul-aug 2026',
+  'p.e1.kind':  'publications',
   'p.e1.read':  '3 min',
-  'p.e1.title': 'site visit / <b>square and hypogea</b>',
-  'p.e1.lede':  'faeto, july 2026. the square is nearly there — paving closed, benches in place, lights on the way. underground, the two vaults advance: exposed stone masonry restored, new frames fitted, cocciopesto floors next.',
+  'p.e1.title': 'Troia / <b>cultural pole</b>',
+  'p.e1.lede':  'Archite n.19 publishes an article by Valeria Di Toro on the MED in Troia: completion works, rediscovered painted ceiling and a cultural network across the city.',
   'p.e1.go':    'read <span class="arrow">→</span>',
-  'p.e2.date':  '22 jun 2026',
-  'p.e2.kind':  'site',
-  'p.e2.read':  '2 min',
-  'p.e2.title': 'the square / <b>takes shape</b>',
-  'p.e2.lede':  'faeto, june 2026. paving almost complete, monolithic benches in place. from an elevated viewpoint the composition is finally readable in full.',
+  'p.e2.date':  'may-jun 2026',
+  'p.e2.kind':  'publications',
+  'p.e2.read':  '3 min',
+  'p.e2.title': 'Museo Civico / <b>Troia</b>',
+  'p.e2.lede':  'Archite n.18 publishes Valeria Di Toro\'s article on the cultural project for the enhancement, restoration and redisplay of the Museo Civico di Troia.',
   'p.e2.go':    'read <span class="arrow">→</span>',
-  'p.e3.date':  '16 jun 2026',
-  'p.e3.kind':  'site',
-  'p.e3.read':  '4 min',
-  'p.e3.title': 'the paving <span class="s">/</span> <b>begins</b>',
-  'p.e3.lede':  'faeto, june 2026. stone arrives on site: the grey basalt orditura takes shape on the square and the first monolithic bench is in place.',
+  'p.e3.date':  'mar-apr 2024',
+  'p.e3.kind':  'publications',
+  'p.e3.read':  '3 min',
+  'p.e3.title': 'the iconic / <b>bridge</b>',
+  'p.e3.lede':  'Archite n.5 publishes an article on The Iconic Bridge, the aerial connection designed for Eceplast in Troia and built around the architectural language of the container.',
   'p.e3.go':    'read <span class="arrow">→</span>',
-  'p.e4.date':  '04 jun 2026',
+  'p.e4.date':  '8 jul 2026',
   'p.e4.kind':  'site',
-  'p.e4.read':  '4 min',
-  'p.e4.title': 'a site visit <span class="s">/</span> <b>by night</b>',
-  'p.e4.lede':  'faeto, an evening site visit with edil tortorella: setting out the paving courses and the conduits before the laying surface is closed.',
+  'p.e4.read':  '3 min',
+  'p.e4.title': 'site visit / <b>square and hypogea</b>',
+  'p.e4.lede':  'faeto, july 2026. the square is nearly there — paving closed, benches in place, lights on the way. underground, the two vaults advance: exposed stone masonry restored, new frames fitted, cocciopesto floors next.',
   'p.e4.go':    'read <span class="arrow">→</span>',
+  'p.e5.date':  '22 jun 2026',
+  'p.e5.kind':  'site',
+  'p.e5.read':  '2 min',
+  'p.e5.title': 'the square / <b>takes shape</b>',
+  'p.e5.lede':  'faeto, june 2026. paving almost complete, monolithic benches in place. from an elevated viewpoint the composition is finally readable in full.',
+  'p.e5.go':    'read <span class="arrow">→</span>',
+  'p.e6.date':  '16 jun 2026',
+  'p.e6.kind':  'site',
+  'p.e6.read':  '4 min',
+  'p.e6.title': 'the paving <span class="s">/</span> <b>begins</b>',
+  'p.e6.lede':  'faeto, june 2026. stone arrives on site: the grey basalt orditura takes shape on the square and the first monolithic bench is in place.',
+  'p.e6.go':    'read <span class="arrow">→</span>',
+  'p.e7.date':  '04 jun 2026',
+  'p.e7.kind':  'site',
+  'p.e7.read':  '4 min',
+  'p.e7.title': 'a site visit <span class="s">/</span> <b>by night</b>',
+  'p.e7.lede':  'faeto, an evening site visit with edil tortorella: setting out the paving courses and the conduits before the laying surface is closed.',
+  'p.e7.go':    'read <span class="arrow">→</span>',
 };
 </script>
 <div class="b-page">
@@ -98,7 +116,7 @@ window.PAGE_EN = {
           </svg>
         </span>
         <input data-search type="search" placeholder="cerca una parola, un cantiere, un autore…" aria-label="cerca">
-        <span class="b-search__count" data-count>07 scritture</span>
+        <span class="b-search__count" data-count>06 scritture</span>
       </label>
       <div class="b-filters" role="tablist">
         <button data-filter="tutti" class="is-on" type="button" data-i18n="filter.tutti">tutti</button>
@@ -113,25 +131,79 @@ window.PAGE_EN = {
     <section class="b-list" id="diario">
 
       <!-- layout A — foto destra -->
-      <a class="b-entry" href="post/faeto-ipogei-luglio-2026.html" data-kind="cantiere" data-tags="cantiere">
+      <a class="b-entry" href="post/archite-med-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite med troia restauro museo">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e1.date">8 lug 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e1.date">lug-ago 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e1.kind">cantiere</span>
+            <span class="kind" data-i18n="p.e1.kind">pubblicazioni</span>
             <span data-i18n="p.e1.read">3 min</span>
-            <span>faeto (fg)</span>
+            <span>archite n.19</span>
           </div>
           <h2 class="b-entry__title" data-i18n="p.e1.title">
-            sopralluogo <span class="s">/</span> <b>piazza e ipogei</b>
+            Troia <span class="s">/</span> <b>polo culturale</b>
           </h2>
           <p class="b-entry__lede" data-i18n="p.e1.lede">
+            Archite n.19 pubblica un articolo di Valeria Di Toro sul MED di Troia:
+            lavori di completamento, soffitto dipinto ritrovato e rete culturale urbana.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read" data-i18n="p.e1.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">archite</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot fit="contain" src="img/archite-med-troia-2026-01.jpg" placeholder="archite n.19, MED di Troia"></image-slot>
+        </div>
+      </a>
+
+      <!-- layout B — foto sinistra (mirror) -->
+      <a class="b-entry is-mirror" href="post/archite-museo-civico-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite museo civico troia">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">—<em data-i18n="p.e2.date">mag-giu 2026</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind" data-i18n="p.e2.kind">pubblicazioni</span>
+            <span data-i18n="p.e2.read">3 min</span>
+            <span>archite n.18</span>
+          </div>
+          <h2 class="b-entry__title" data-i18n="p.e2.title">
+            Museo Civico <span class="s">/</span> <b>Troia</b>
+          </h2>
+          <p class="b-entry__lede" data-i18n="p.e2.lede">
+            Archite n.18 racconta il progetto di valorizzazione, restauro
+            e riallestimento del Museo Civico di Troia.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read" data-i18n="p.e2.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">archite</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot fit="contain" src="img/archite-museo-civico-troia-2026-01.jpg" placeholder="archite n.18, Museo Civico di Troia"></image-slot>
+        </div>
+      </a>
+
+      <!-- layout A — foto destra -->
+      <a class="b-entry" href="post/faeto-ipogei-luglio-2026.html" data-kind="cantiere" data-tags="cantiere">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">—<em data-i18n="p.e4.date">8 lug 2026</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind" data-i18n="p.e4.kind">cantiere</span>
+            <span data-i18n="p.e4.read">3 min</span>
+            <span>faeto (fg)</span>
+          </div>
+          <h2 class="b-entry__title" data-i18n="p.e4.title">
+            sopralluogo <span class="s">/</span> <b>piazza e ipogei</b>
+          </h2>
+          <p class="b-entry__lede" data-i18n="p.e4.lede">
             faeto, luglio 2026. la piazza è quasi al traguardo, diario del sopralluogo di fine giugno —
             pavimento chiuso, sedute in opera, le lampade arrivano. negli ipogei il cantiere avanza:
             muratura in pietra a vista restaurata, nuovi infissi in opera, cocciopesto il passo successivo.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e1.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e4.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">cibelli / guadagno</span>
           </div>
         </div>
@@ -143,23 +215,23 @@ window.PAGE_EN = {
       <!-- layout B — foto sinistra (mirror) -->
       <a class="b-entry is-mirror" href="post/faeto-piazza-avanza.html" data-kind="cantiere" data-tags="cantiere">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e2.date">22 giu 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e5.date">22 giu 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e2.kind">cantiere</span>
-            <span data-i18n="p.e2.read">2 min</span>
+            <span class="kind" data-i18n="p.e5.kind">cantiere</span>
+            <span data-i18n="p.e5.read">2 min</span>
             <span>faeto (fg)</span>
           </div>
-          <h2 class="b-entry__title" data-i18n="p.e2.title">
+          <h2 class="b-entry__title" data-i18n="p.e5.title">
             la piazza <span class="s">/</span> <b>prende forma</b>
           </h2>
-          <p class="b-entry__lede" data-i18n="p.e2.lede">
+          <p class="b-entry__lede" data-i18n="p.e5.lede">
             faeto, giugno 2026. la pavimentazione è quasi completa,
             le sedute monolitiche in opera. dalla quota rialzata
             la composizione è finalmente leggibile per intero.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e2.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e5.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">cibelli / guadagno</span>
           </div>
         </div>
@@ -171,22 +243,22 @@ window.PAGE_EN = {
       <!-- layout A — foto destra -->
       <a class="b-entry" href="post/faeto-inizio-posa.html" data-kind="cantiere" data-tags="cantiere">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e3.date">16 giu 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e6.date">16 giu 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e3.kind">cantiere</span>
-            <span data-i18n="p.e3.read">4 min</span>
+            <span class="kind" data-i18n="p.e6.kind">cantiere</span>
+            <span data-i18n="p.e6.read">4 min</span>
             <span>faeto (fg)</span>
           </div>
-          <h2 class="b-entry__title" data-i18n="p.e3.title">
+          <h2 class="b-entry__title" data-i18n="p.e6.title">
             la posa <span class="s">/</span> <b>inizia</b>
           </h2>
-          <p class="b-entry__lede" data-i18n="p.e3.lede">
+          <p class="b-entry__lede" data-i18n="p.e6.lede">
             faeto, giugno 2026. la pietra arriva in cantiere: l'orditura in basalto grigio
             prende forma sulla piazza e la prima seduta monolitica è in opera.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e3.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e6.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">cibelli / guadagno</span>
           </div>
         </div>
@@ -198,101 +270,27 @@ window.PAGE_EN = {
       <!-- layout B — foto sinistra (mirror) -->
       <a class="b-entry is-mirror" href="post/sopralluogo-faeto-notturna.html" data-kind="cantiere" data-tags="cantiere">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e4.date">04 giu 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e7.date">04 giu 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e4.kind">cantiere</span>
-            <span data-i18n="p.e4.read">4 min</span>
+            <span class="kind" data-i18n="p.e7.kind">cantiere</span>
+            <span data-i18n="p.e7.read">4 min</span>
             <span>faeto (fg)</span>
           </div>
-          <h2 class="b-entry__title" data-i18n="p.e4.title">
+          <h2 class="b-entry__title" data-i18n="p.e7.title">
             un sopralluogo <span class="s">/</span> <b>in notturna</b>
           </h2>
-          <p class="b-entry__lede" data-i18n="p.e4.lede">
+          <p class="b-entry__lede" data-i18n="p.e7.lede">
             faeto, sopralluogo serale con edil tortorella: tracciare i filari della
             pavimentazione e i cavidotti prima della chiusura del piano di posa.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e4.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e7.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">s. cibelli</span>
           </div>
         </div>
         <div class="b-entry__photo">
           <img src="assets/images/sopralluogo-faeto-notturna.jpg" alt="cantiere piazza di faeto" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-      </a>
-
-      <!-- layout B — foto sinistra (mirror) · template progetto -->
-      <a class="b-entry is-mirror" href="post/articolo.html" data-kind="progetto" data-tags="progetto">
-        <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em>mese anno</em></div>
-        <div class="b-entry__main">
-          <div class="b-entry__meta">
-            <span class="kind">progetto</span>
-            <span>— min</span>
-            <span>luogo</span>
-          </div>
-          <h2 class="b-entry__title">
-            titolo <span class="s">/</span> <b>sottotitolo</b>
-          </h2>
-          <p class="b-entry__lede">
-            testo introduttivo dell'articolo.
-          </p>
-          <div class="b-entry__foot">
-            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
-            <span class="b-entry__time">autore</span>
-          </div>
-        </div>
-        <div class="b-entry__photo">
-          <image-slot id="entry-02" placeholder="immagine articolo"></image-slot>
-        </div>
-      </a>
-
-      <!-- layout C — solo testo · template riflessioni -->
-      <a class="b-entry is-textonly" href="post/articolo.html" data-kind="riflessioni" data-tags="riflessioni">
-        <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em>mese anno</em></div>
-        <div class="b-entry__main">
-          <div class="b-entry__meta">
-            <span class="kind">riflessioni</span>
-            <span>— min</span>
-          </div>
-          <h2 class="b-entry__title">
-            titolo <span class="s">/</span> <b>sottotitolo</b>
-          </h2>
-          <p class="b-entry__lede">
-            testo introduttivo dell'articolo.
-          </p>
-          <div class="b-entry__foot">
-            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
-            <span class="b-entry__time">autore</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- layout A — foto destra · template pubblicazioni -->
-      <a class="b-entry" href="post/articolo.html" data-kind="pubblicazioni" data-tags="pubblicazioni">
-        <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em>mese anno</em></div>
-        <div class="b-entry__main">
-          <div class="b-entry__meta">
-            <span class="kind">pubblicazioni</span>
-            <span>— min</span>
-            <span>luogo</span>
-          </div>
-          <h2 class="b-entry__title">
-            titolo <span class="s">/</span> <b>sottotitolo</b>
-          </h2>
-          <p class="b-entry__lede">
-            testo introduttivo dell'articolo.
-          </p>
-          <div class="b-entry__foot">
-            <span class="b-entry__read">leggi <span class="arrow">→</span></span>
-            <span class="b-entry__time">autore</span>
-          </div>
-        </div>
-        <div class="b-entry__photo">
-          <image-slot id="entry-04" placeholder="immagine articolo"></image-slot>
         </div>
       </a>
 

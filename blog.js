@@ -52,17 +52,21 @@
 
   function recount() {
     let n = 0;
+    let total = 0;
     entries.forEach((el) => {
       const kind = el.dataset.kind || '';
+      const archiveOnly = el.dataset.archiveOnly || '';
       const hay = norm(el.textContent + ' ' + (el.dataset.tags || ''));
+      const hitArchive = !archiveOnly || activeKind === archiveOnly;
       const hitKind = activeKind === 'tutti' || kind === activeKind;
       const hitQuery = !query || hay.includes(query);
-      const show = hitKind && hitQuery;
+      const eligible = hitArchive && hitKind;
+      const show = eligible && hitQuery;
       el.classList.toggle('is-hidden', !show);
+      if (eligible) total++;
       if (show) n++;
     });
     if (counter) {
-      const total = entries.length;
       counter.textContent = (n === total)
         ? `${String(total).padStart(2, '0')} scritture`
         : `${String(n).padStart(2, '0')} di ${String(total).padStart(2, '0')}`;

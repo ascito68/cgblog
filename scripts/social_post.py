@@ -47,7 +47,7 @@ def extract(path):
     m = re.search(r'class="b-art-head__lede"[^>]*>(.*?)</p>', html, re.S)
     if m:
         lede = strip_tags(m.group(1))
-    m = re.search(r'<figure class="b-art-hero">.*?<(?:img|image-slot) src="\.\./([^"]+)"', html, re.S)
+    m = re.search(r'<figure class="[^"]*\bb-art-hero\b[^"]*">.*?<(?:img|image-slot)[^>]+src="\.\./([^"]+)"', html, re.S)
     if m:
         image = f"{SITE}/{m.group(1)}"
     return title, lede, image
@@ -79,6 +79,10 @@ def publish(path):
     name = os.path.basename(path)
     if name == "articolo.html":  # template, mai pubblicare
         print(f"· {name}: template, salto")
+        return
+    html = open(path, encoding="utf-8").read()
+    if 'data-social="skip"' in html:
+        print(f"· {name}: social disattivati, salto")
         return
     title, lede, image = extract(path)
     if not (title and lede):

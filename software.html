@@ -12,24 +12,28 @@
 <script>
 window.PAGE_EN = {
   'p.kind':        'software',
-  'p.status':      'in development',
+  'p.status':      'in testing',
   'p.h1':          'C/G LightCalc <span class="s">/</span> lighting <b>calculations</b>',
-  'p.lede':        'Everything needed for lighting design. Complete tools for regulatory compliance verification, from the design phase to final documentation for the client and works manager.',
+  'p.lede':        'From the PDF floor plan to the ready-to-deliver technical report — in three steps. C/G LightCalc combines lighting calculation, UNI/EN regulatory verification and automatic report generation in a single browser-based workflow. No installation required.',
   'p.rail.tipo':   'lighting calculations',
-  'p.rail.stato':  'in development',
+  'p.rail.stato':  'in testing',
+  'p.rail.piatt':  'web app · browser',
   'p.rail.autore': 'stefano cibelli',
-  'p.p1':          'C/G LightCalc was born out of a concrete need: during restoration and design projects, verifying lighting parameters often requires complex tools or repetitive manual calculations. This software simplifies the process, delivering reliable results quickly.',
+  'p.p1':          'C/G LightCalc was born out of a concrete need: reducing the repetitive work between a lighting verification and a usable technical report. The software follows the real workflow — load the floor plan, run the calculation, generate the document — without switching between different tools. As a web app it works anywhere: studio, site, laptop or iPad. No installation, no local licence, no manual updates.',
   'p.h2.feat':     'what it <b>calculates</b>',
-  'p.f1':          '<strong>EN 12464-1 — interiors.</strong> Point-by-point calculation of Em and uniformity U0. Complex geometries: barrel vaults and cross vaults. Spencer IRM method. Immediate compliance indicators.',
-  'p.f2':          '<strong>EN 13201 — road lighting.</strong> ME, CE, S/P classes. Em, Emin, U0, Rg ratio. UNI 11248 and 6 regional anti-light-pollution laws (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana) with CCT verification.',
+  'p.f1':          '<strong>EN 12464-1 — interiors.</strong> Point-by-point calculation of Em and uniformity U0. 23 standard use categories. Complex geometries: barrel vaults and cross vaults. Spencer IRM method. Immediate compliance indicators.',
+  'p.f2':          '<strong>EN 13201 — road lighting.</strong> ME, CE, S/P classes. Em, Emin, U0, Rg ratio. UNI 11248 and 15 regional anti-light-pollution laws with citable references.',
+  'p.femerg':      '<strong>EN 1838 — emergency and evacuation.</strong> Anti-panic area and escape routes verified directly on the floor plan. Integrated into the documentation package.',
   'p.f3':          '<strong>Spencer IRM — reflected component.</strong> Spencer spherical cavity formula. Inter-reflections on walls, ceiling, floor.',
-  'p.f4':          '<strong>IES / LDT photometric library.</strong> IES (IESNA LM-63) and LDT (EULUMDAT) formats. Polar diagram. StripLED in lm/m. Up to 4 luminaire types.',
-  'p.f5':          '<strong>Advanced positioning and visualisation.</strong> 4 modes: grid by number, by spacing, graphic cell selection, click on calibrated floor plan (2-point metric calibration). Views: isolux, heatmap, 3D surface.',
-  'p.f6':          '<strong>Professional PDF and DOCX reports.</strong> ReportLab (PDF) and python-docx (DOCX). Floor plan on cover, results tables, isolux charts, verification report. JSON save.',
+  'p.f4':          '<strong>IES / LDT photometric library.</strong> IES (IESNA LM-63) and LDT (EULUMDAT) formats. Polar diagram. StripLED in lm/m. Multiple luminaire types in the same project.',
+  'p.f5':          '<strong>Advanced positioning and visualisation.</strong> Grid by count, by spacing, graphic cell selection, click on calibrated floor plan. Irregular perimeters. Views: isolux, heatmap, 3D surface.',
+  'p.f6':          '<strong>Professional PDF and DOCX reports.</strong> Results tables, isolux charts and normative references generated automatically. Saveable JSON project file.',
   'p.h2.method':   'the <b>method</b>',
-  'p.p.method':    'Each module applies its reference standard — EN 12464-1 for interiors, EN 13201 for roads — without shortcuts: point-by-point for workplane illuminance, Spencer IRM for the reflected component, empirical formulas for road lighting classes. Every intermediate value is shown and can be checked.',
+  'p.p.method':    'Each module applies its reference standard — EN 12464-1 for interiors, EN 13201 for roads, EN 1838 for emergency — without shortcuts: point-by-point for workplane illuminance, Spencer IRM for the reflected component. Every intermediate value is shown and can be checked.',
+  'p.h2.stack':    'built <b>with</b>',
+  'p.p.stack':     'Python · Streamlit · ReportLab · python-docx · Matplotlib · PyMuPDF · Claude (Anthropic)',
   'p.h2.stato':    'project <b>status</b>',
-  'p.p.stato':     'The software is currently in development. A beta version will be available to studio collaborators in the coming months. For information or to be notified at release, write to us.',
+  'p.p.stato':     'The software is currently in testing phase. For information or early access visit the product page.',
   'p.pull':        'light is not measured in lux alone. <em>it is listened to.</em>',
   'p.pull.src':    '— project notes',
 };
@@ -65,16 +69,17 @@ window.PAGE_EN = {
       <div class="b-art-head__body">
         <div class="b-art-head__meta">
           <span class="kind" data-i18n="p.kind">software</span>
-          <span data-i18n="p.status">in sviluppo</span>
+          <span data-i18n="p.status">in testing</span>
           <span>stefano cibelli</span>
         </div>
         <h1 class="b-art-head__title" data-i18n="p.h1">
           C/G LightCalc <span class="s">/</span> calcolo <b>illuminotecnico</b>
         </h1>
         <p class="b-art-head__lede" data-i18n="p.lede">
-          tutto ciò che serve per la progettazione illuminotecnica.
-          strumenti completi per la verifica di conformità normativa,
-          dalla fase di progetto alla documentazione finale per il cliente e la Direzione Lavori.
+          dalla planimetria PDF alla relazione illuminotecnica pronta da consegnare — in tre passaggi.
+          C/G LightCalc unisce calcolo illuminotecnico, verifica normativa UNI/EN e generazione
+          automatica della relazione tecnica in un unico flusso di lavoro, direttamente dal browser.
+          nessuna installazione.
         </p>
       </div>
     </section>
@@ -83,31 +88,38 @@ window.PAGE_EN = {
       <aside class="b-art-body__rail" aria-label="metadati">
         <div><strong>nome</strong><span>C/G LightCalc</span></div>
         <div><strong>tipo</strong><span data-i18n="p.rail.tipo">calcolo illuminotecnico</span></div>
-        <div><strong>stato</strong><span data-i18n="p.rail.stato">in sviluppo</span></div>
+        <div><strong>stato</strong><span data-i18n="p.rail.stato">in testing</span></div>
+        <div><strong>piattaforma</strong><span data-i18n="p.rail.piatt">web app · browser</span></div>
         <div><strong>autore</strong><span data-i18n="p.rail.autore">stefano cibelli</span></div>
       </aside>
 
       <div class="b-art-body__main">
         <p data-i18n="p.p1">
-          C/G LightCalc nasce da un'esigenza concreta: durante i progetti di restauro
-          e progettazione, la verifica dei parametri illuminotecnici richiede spesso
-          strumenti complessi o calcoli manuali ripetitivi. questo software semplifica
-          il processo, restituendo risultati affidabili in tempi rapidi.
+          C/G LightCalc nasce da un'esigenza concreta: ridurre il lavoro ripetitivo
+          che separa una verifica illuminotecnica da una relazione tecnica utilizzabile.
+          il software segue il flusso reale — carica la planimetria, esegui la verifica,
+          genera il documento — senza passare tra strumenti diversi.
+          essendo una web app funziona ovunque: studio, cantiere, portatile o iPad.
+          nessuna installazione, nessuna licenza locale, nessun aggiornamento manuale.
         </p>
 
         <h2 data-i18n="p.h2.feat">cosa <b>calcola</b></h2>
         <p data-i18n="p.f1">
           <strong>EN 12464-1 — interni.</strong>
           calcolo punto per punto di Em e uniformità U0.
-          geometrie complesse: volte a botte e crociera.
+          23 destinazioni d'uso. geometrie complesse: volte a botte e crociera.
           metodo IRM Spencer. indicatori di conformità immediati.
         </p>
         <p data-i18n="p.f2">
           <strong>EN 13201 — illuminazione stradale.</strong>
           classi ME, CE, S/P. Em, Emin, U0, rapporto Rg.
-          UNI 11248 e 6 leggi regionali antiinquinamento luminoso
-          (Abruzzo, Basilicata, Lombardia, Piemonte, Puglia, Toscana)
-          con verifica CCT.
+          UNI 11248 e 15 leggi regionali antiinquinamento luminoso
+          con riferimenti citabili in relazione.
+        </p>
+        <p data-i18n="p.femerg">
+          <strong>EN 1838 — emergenza ed esodo.</strong>
+          verifica area antipanico e vie di esodo direttamente sulla planimetria.
+          integrabile nel pacchetto documentale della relazione finale.
         </p>
         <p data-i18n="p.f3">
           <strong>IRM Spencer — componente riflessa.</strong>
@@ -117,12 +129,12 @@ window.PAGE_EN = {
         <p data-i18n="p.f4">
           <strong>libreria fotometrica IES / LDT.</strong>
           formati IES (IESNA LM-63) e LDT (EULUMDAT).
-          diagramma polare. StripLED in lm/m. fino a 4 tipi di apparecchio.
+          diagramma polare. StripLED in lm/m. più tipi di apparecchio nello stesso progetto.
         </p>
         <p data-i18n="p.f5">
           <strong>posizionamento e visualizzazione avanzata.</strong>
-          4 modalità: griglia per numero, per interasse, selezione grafica per cella,
-          click su planimetria reale (calibrazione metrica a 2 punti).
+          griglia per numero, per interasse, selezione grafica per cella,
+          click su planimetria calibrata. perimetri irregolari.
           viste: isolux, heatmap, superficie 3D.
         </p>
         <p data-i18n="p.f6">
@@ -142,17 +154,23 @@ window.PAGE_EN = {
         <h2 data-i18n="p.h2.method">il <b>metodo</b></h2>
         <p data-i18n="p.p.method">
           ogni modulo applica la norma di riferimento — EN 12464-1 per gli interni,
-          EN 13201 per le strade — senza scorciatoie: punto per punto per l'illuminamento
-          sul piano di lavoro, IRM Spencer per la componente riflessa, formule empiriche
-          per le classi di illuminazione stradale. ogni valore intermedio è visibile
-          e verificabile.
+          EN 13201 per le strade, EN 1838 per l'emergenza — senza scorciatoie:
+          punto per punto per l'illuminamento sul piano di lavoro,
+          IRM Spencer per la componente riflessa.
+          ogni valore intermedio è visibile e verificabile.
+        </p>
+
+        <h2 data-i18n="p.h2.stack">sviluppato <b>con</b></h2>
+        <p data-i18n="p.p.stack">
+          Python · Streamlit · ReportLab · python-docx · Matplotlib · PyMuPDF · Claude (Anthropic)
         </p>
 
         <h2 data-i18n="p.h2.stato">stato del <b>progetto</b></h2>
         <p data-i18n="p.p.stato">
-          il software è attualmente in fase di sviluppo. una versione beta sarà
-          disponibile per i collaboratori dello studio nei prossimi mesi.
-          per informazioni o per essere avvisati al rilascio, scriveteci.
+          il software è attualmente in fase di testing.
+          per informazioni o per accedere alla versione disponibile,
+          visita la pagina prodotto:
+          <a href="https://joinlightcalc.stefanocibelli.it" target="_blank" rel="noopener">joinlightcalc.stefanocibelli.it</a>
         </p>
       </div>
     </div>

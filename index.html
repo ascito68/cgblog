@@ -13,24 +13,25 @@
 <script>
 /* traduzioni inglesi delle anteprime articoli — lette da blog.js */
 window.PAGE_EN = {
-  'p.e1.date':  'jul-aug 2026',
-  'p.e1.kind':  'publications',
-  'p.e1.read':  '3 min',
-  'p.e1.title': 'Troia / <b>cultural pole</b>',
-  'p.e1.lede':  'Archite n.19 publishes an article by Valeria Di Toro on the MED in Troia: completion works, rediscovered painted ceiling and a cultural network across the city.',
+  'p.e1.date':  '19 jul 2026',
+  'p.e1.kind':  'reflections',
+  'p.e1.read':  '2 min',
+  'p.e1.title': 'slop <span class="s">/</span> <b>d\'autore</b>',
+  'p.e1.lede':  'AI slop: content mass-produced by artificial intelligence, technically perfect and completely empty. Stefano Cibelli on simulations, competence and the real risk for the architect.',
   'p.e1.go':    'read <span class="arrow">→</span>',
-  'p.e2.date':  'may-jun 2026',
+  'p.e2.date':  'jul-aug 2026',
   'p.e2.kind':  'publications',
   'p.e2.read':  '3 min',
-  'p.e2.title': 'Museo Civico / <b>Troia</b>',
-  'p.e2.lede':  'Archite n.18 publishes Valeria Di Toro\'s article on the cultural project for the enhancement, restoration and redisplay of the Museo Civico di Troia.',
+  'p.e2.title': 'Troia / <b>cultural pole</b>',
+  'p.e2.lede':  'Archite n.19 publishes an article by Valeria Di Toro on the MED in Troia: completion works, rediscovered painted ceiling and a cultural network across the city.',
   'p.e2.go':    'read <span class="arrow">→</span>',
-  'p.e3.date':  'mar-apr 2024',
+  'p.e3.date':  'may-jun 2026',
   'p.e3.kind':  'publications',
   'p.e3.read':  '3 min',
-  'p.e3.title': 'the iconic / <b>bridge</b>',
-  'p.e3.lede':  'Archite n.5 publishes an article on The Iconic Bridge, the aerial connection designed for Eceplast in Troia and built around the architectural language of the container.',
+  'p.e3.title': 'Museo Civico / <b>Troia</b>',
+  'p.e3.lede':  'Archite n.18 publishes Valeria Di Toro\'s article on the cultural project for the enhancement, restoration and redisplay of the Museo Civico di Troia.',
   'p.e3.go':    'read <span class="arrow">→</span>',
+
   'p.e4.date':  '8 jul 2026',
   'p.e4.kind':  'site',
   'p.e4.read':  '3 min',
@@ -116,7 +117,7 @@ window.PAGE_EN = {
           </svg>
         </span>
         <input data-search type="search" placeholder="cerca una parola, un cantiere, un autore…" aria-label="cerca">
-        <span class="b-search__count" data-count>06 scritture</span>
+        <span class="b-search__count" data-count>07 scritture</span>
       </label>
       <div class="b-filters" role="tablist">
         <button data-filter="tutti" class="is-on" type="button" data-i18n="filter.tutti">tutti</button>
@@ -131,24 +132,52 @@ window.PAGE_EN = {
     <section class="b-list" id="diario">
 
       <!-- layout A — foto destra -->
-      <a class="b-entry" href="post/archite-med-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite med troia restauro museo">
+      <a class="b-entry" href="post/slop-autore-luglio-2026.html" data-kind="riflessioni" data-tags="riflessioni AI architettura">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e1.date">lug-ago 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e1.date">19 lug 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e1.kind">pubblicazioni</span>
-            <span data-i18n="p.e1.read">3 min</span>
-            <span>archite n.19</span>
+            <span class="kind" data-i18n="p.e1.kind">riflessioni</span>
+            <span data-i18n="p.e1.read">2 min</span>
+            <span>stefano cibelli</span>
           </div>
           <h2 class="b-entry__title" data-i18n="p.e1.title">
-            Troia <span class="s">/</span> <b>polo culturale</b>
+            slop <span class="s">/</span> <b>d'autore</b>
           </h2>
           <p class="b-entry__lede" data-i18n="p.e1.lede">
+            AI slop: contenuti fatti in serie dall'intelligenza artificiale,
+            tecnicamente perfetti e completamente vuoti.
+            Stefano Cibelli su simulazioni, competenza e il rischio vero per l'architetto.
+          </p>
+          <div class="b-entry__foot">
+            <span class="b-entry__read" data-i18n="p.e1.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__time">s. cibelli</span>
+          </div>
+        </div>
+        <div class="b-entry__photo">
+          <image-slot fit="cover" src="img/slop-autore-luglio-2026.jpg" placeholder="al tavolo da disegno, anni cinquanta"></image-slot>
+        </div>
+      </a>
+
+      <!-- layout B — foto sinistra (mirror) -->
+      <a class="b-entry is-mirror" href="post/archite-med-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite med troia restauro museo">
+        <div class="b-entry__sweep"></div>
+        <div class="b-entry__num">—<em data-i18n="p.e2.date">lug-ago 2026</em></div>
+        <div class="b-entry__main">
+          <div class="b-entry__meta">
+            <span class="kind" data-i18n="p.e2.kind">pubblicazioni</span>
+            <span data-i18n="p.e2.read">3 min</span>
+            <span>archite n.19</span>
+          </div>
+          <h2 class="b-entry__title" data-i18n="p.e2.title">
+            Troia <span class="s">/</span> <b>polo culturale</b>
+          </h2>
+          <p class="b-entry__lede" data-i18n="p.e2.lede">
             Archite n.19 pubblica un articolo di Valeria Di Toro sul MED di Troia:
             lavori di completamento, soffitto dipinto ritrovato e rete culturale urbana.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e1.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e2.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">archite</span>
           </div>
         </div>
@@ -157,25 +186,25 @@ window.PAGE_EN = {
         </div>
       </a>
 
-      <!-- layout B — foto sinistra (mirror) -->
-      <a class="b-entry is-mirror" href="post/archite-museo-civico-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite museo civico troia">
+      <!-- layout A — foto destra -->
+      <a class="b-entry" href="post/archite-museo-civico-troia-2026.html" data-kind="pubblicazioni" data-tags="pubblicazioni archite museo civico troia">
         <div class="b-entry__sweep"></div>
-        <div class="b-entry__num">—<em data-i18n="p.e2.date">mag-giu 2026</em></div>
+        <div class="b-entry__num">—<em data-i18n="p.e3.date">mag-giu 2026</em></div>
         <div class="b-entry__main">
           <div class="b-entry__meta">
-            <span class="kind" data-i18n="p.e2.kind">pubblicazioni</span>
-            <span data-i18n="p.e2.read">3 min</span>
+            <span class="kind" data-i18n="p.e3.kind">pubblicazioni</span>
+            <span data-i18n="p.e3.read">3 min</span>
             <span>archite n.18</span>
           </div>
-          <h2 class="b-entry__title" data-i18n="p.e2.title">
+          <h2 class="b-entry__title" data-i18n="p.e3.title">
             Museo Civico <span class="s">/</span> <b>Troia</b>
           </h2>
-          <p class="b-entry__lede" data-i18n="p.e2.lede">
+          <p class="b-entry__lede" data-i18n="p.e3.lede">
             Archite n.18 racconta il progetto di valorizzazione, restauro
             e riallestimento del Museo Civico di Troia.
           </p>
           <div class="b-entry__foot">
-            <span class="b-entry__read" data-i18n="p.e2.go">leggi <span class="arrow">→</span></span>
+            <span class="b-entry__read" data-i18n="p.e3.go">leggi <span class="arrow">→</span></span>
             <span class="b-entry__time">archite</span>
           </div>
         </div>

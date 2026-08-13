@@ -68,6 +68,9 @@ Le chiavi `p.eN.*` nel `PAGE_EN` di index seguono l'ordine: e1 = più recente, e
 Quando si aggiunge un nuovo articolo, rinumerare le chiavi degli articoli esistenti di conseguenza (e1→e2, e2→e3, …) sia nell'HTML che nel blocco `window.PAGE_EN`.
 Aggiornare anche il contatore `data-count` (es. "06 scritture").
 
+## Stile dei testi (IT)
+Nei testi in italiano degli articoli usare le **maiuscole dopo il punto** come nella normale grammatica italiana. Ogni frase inizia con la lettera maiuscola. Le leде e i titoli possono mantenere lo stile minuscolo del blog, ma il corpo dei paragrafi (`p.p1`, `p.p2`, ecc.) e le blockquote devono avere la prima lettera di ogni frase in maiuscolo.
+
 ## Animazioni
 - La transizione `.b-wipe` usa la classe `is-on` per coprire lo schermo durante la navigazione.
 - Su Safari mobile il BFCache può ripristinare la pagina con il velo ancora attivo (schermo nero). Il fix è il listener `pageshow` con `e.persisted` in `blog.js`.

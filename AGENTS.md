@@ -55,6 +55,20 @@ Questo file e la fonte normativa comune per Codex, Claude Code e ogni altro agen
 - La mancanza dei dati Meta fa saltare la pubblicazione Meta senza errore bloccante; gli errori LinkedIn vengono riportati dal workflow ma non necessariamente fanno fallire l'intero processo.
 - Non inserire mai valori dei Secret nei file, nei log o nei messaggi dell'agente. Usare esclusivamente i riferimenti ai Secret gia previsti dal workflow.
 
+## Token LinkedIn — rinnovo periodico
+
+Il `LINKEDIN_TOKEN` scade ogni ~60 giorni. **Ultimo rinnovo: 21 settembre 2026. Prossima scadenza: ~21 novembre 2026.**
+
+Procedura di rinnovo (tutto va eseguito in locale dall'utente, non dall'agente — LinkedIn e bloccato dal proxy dell'ambiente remoto):
+
+1. Apri nel browser:
+   `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=780rpwwjh6gqpb&redirect_uri=https%3A%2F%2Flocalhost&scope=w_member_social%20openid%20profile&state=li123`
+2. Autorizza → copia il valore `code=...` dall'URL (scade in pochi secondi).
+3. Esegui subito in terminale locale (sostituendo `CODICE`):
+   `curl -s 'https://www.linkedin.com/oauth/v2/accessToken' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=authorization_code&code=CODICE&redirect_uri=https%3A%2F%2Flocalhost&client_id=780rpwwjh6gqpb&client_secret=WPL_AP1.TizRneL6vIaZbhJN.fore9A%3D%3D'`
+4. Copia `access_token` dalla risposta JSON → aggiorna il GitHub Secret `LINKEDIN_TOKEN`.
+5. Se un post non e stato pubblicato su LinkedIn per token scaduto, triggerare manualmente `social.yml` via `workflow_dispatch` con input `files=post/nome-articolo.html`.
+
 ## Immagini, PDF e contenuti locali
 
 - Verificare che immagini e PDF siano realmente riferiti da un articolo prima di considerarli parte della pubblicazione.

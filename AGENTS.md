@@ -46,6 +46,8 @@ Questo file e la fonte normativa comune per Codex, Claude Code e ogni altro agen
 
 ## Social automatici
 
+- Preferenza esplicita dell’utente (6 ottobre 2026): quando chiede di pubblicare un articolo su cgblog, includere anche la pubblicazione social automatica su Facebook, Instagram e LinkedIn. Non usare `data-social="skip"` salvo richiesta specifica. La richiesta di pubblicazione autorizza staging, commit e push su `main` dei soli file necessari, dopo revisione e verifica; non richiedere una seconda conferma.
+
 - `.github/workflows/social.yml` reagisce a un push su `main` che aggiunge un nuovo file in `post/`, oppure a un avvio manuale.
 - Lo script `scripts/social_post.py` pubblica, quando configurato, su Facebook, Instagram e LinkedIn usando i Secret GitHub configurati nel workflow.
 - L'automazione usa titolo, lede, immagine hero e collegamento all'articolo.

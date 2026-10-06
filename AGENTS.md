@@ -69,6 +69,16 @@ Procedura di rinnovo (tutto va eseguito in locale dall'utente, non dall'agente â
 4. Copia `access_token` dalla risposta JSON â†’ aggiorna il GitHub Secret `LINKEDIN_TOKEN`.
 5. Se un post non e stato pubblicato su LinkedIn per token scaduto, triggerare manualmente `social.yml` via `workflow_dispatch` con input `files=post/nome-articolo.html`.
 
+## Sistema di design e identita visiva
+
+- `colors_and_type.css` e la fonte dei design token (palette, tipografia, spaziatura, animazioni): e importato via `@import` in cima a `styles.css`, quindi e sempre attivo anche se nessuna pagina lo collega direttamente nel `<head>`. Encoda il rebrand "BecomeBrand Visual Concept #01" (marzo 2021).
+- Non scrivere mai colori, font-size o spaziature "a mano": usare sempre le variabili CSS (`--cg-nero`, `--cg-tortora-mid`, `--accent`, `--cg-space-*`, `--cg-size-*`, ecc.). `--accent` in `styles.css` punta a `--cg-tortora-mid`.
+- Il font primario e Helvetica Neue (licenza Linotype, non in bundle); il fallback web e Inter via Google Fonts. Non sostituire il fallback senza motivo.
+- Il brand e "rigorosamente squadrato": `--cg-radius: 0`, nessun border-radius nei nuovi componenti.
+- Stile tipografico minuscolo ("il brand sussurra"): la classe `.cg-whisper` forza il lowercase; titoli e lede restano in minuscolo salvo nomi propri.
+- Il motivo grafico della "slash" (colore, peso, angolo) e definito dai token `--cg-slash-*` ed e usato nel logo, in `.b-ambient__slash` e nella transizione `.b-wipe`.
+- `tweaks-panel.jsx` nella root e uno strumento di prototipazione React NON collegato da nessuna pagina del sito: non fa parte del design system in produzione, va ignorato a meno che l'utente non chieda di riutilizzarlo o rimuoverlo.
+
 ## Immagini, PDF e contenuti locali
 
 - Verificare che immagini e PDF siano realmente riferiti da un articolo prima di considerarli parte della pubblicazione.

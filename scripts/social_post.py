@@ -84,6 +84,7 @@ def publish(path):
     if 'data-social="skip"' in html:
         print(f"· {name}: social disattivati, salto")
         return
+    instagram_only = 'data-social="instagram"' in html
     title, lede, image = extract(path)
     if not (title and lede):
         print(f"· {name}: titolo o lede mancanti, salto")
@@ -96,12 +97,13 @@ def publish(path):
         print(f"· {name}: immagine non ancora online, salto")
         return
 
-    # Facebook: post con foto (o solo link se l'articolo non ha foto)
-    if image:
-        fb = api(f"{FB_PAGE_ID}/photos", {"url": image, "caption": caption_fb})
-    else:
-        fb = api(f"{FB_PAGE_ID}/feed", {"message": caption_fb, "link": link})
-    print(f"· {name}: facebook ok ({fb.get('id') or fb.get('post_id')})")
+    if not instagram_only:
+        # Facebook: post con foto (o solo link se l'articolo non ha foto)
+        if image:
+            fb = api(f"{FB_PAGE_ID}/photos", {"url": image, "caption": caption_fb})
+        else:
+            fb = api(f"{FB_PAGE_ID}/feed", {"message": caption_fb, "link": link})
+        print(f"· {name}: facebook ok ({fb.get('id') or fb.get('post_id')})")
 
     # Instagram: container + publish (richiede un'immagine)
     if image:
@@ -118,7 +120,7 @@ def publish(path):
         print(f"· {name}: nessuna immagine, instagram saltato")
 
     # LinkedIn: foto caricata + link nel testo
-    if LINKEDIN_TOKEN and LINKEDIN_PERSON_ID:
+    if not instagram_only and LINKEDIN_TOKEN and LINKEDIN_PERSON_ID:
         try:
             li = post_linkedin(title, lede, link, image)
             print(f"· {name}: linkedin ok ({li.get('id', '')})")

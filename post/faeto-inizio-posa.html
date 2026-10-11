@@ -7,9 +7,11 @@
 <meta name="description" content="Faeto, giugno 2026. La pietra è a terra: l'orditura in basalto grigio prende forma sulla piazza, la prima seduta monolitica è in opera, gli ipogei avanzano.">
 <link rel="stylesheet" href="../styles.css">
 <script src="../image-slot.js" defer></script>
-<script src="../blog.js?v=20260616" defer></script>
+<script src="../blog.js?v=20261011-2" defer></script>
+<link rel="stylesheet" href="../article-brand.css?v=20261011">
+<script src="../article-brand.js?v=20261011-2" defer></script>
 </head>
-<body data-screen-label="blog article — faeto inizio posa">
+<body class="cg-article" data-screen-label="blog article — faeto inizio posa">
 <script>
 /* traduzione inglese di questo articolo */
 window.PAGE_EN = {
@@ -52,8 +54,8 @@ window.PAGE_EN = {
     <header class="b-head">
       <a class="b-head__mark" href="../index.html">
         cıbellı<span class="s">/</span>guadagno<sup>®</sup>
-      </a>
-      <nav class="b-head__nav" aria-label="navigazione">
+      <span class="b-head__tagline">inclinazioni <b>architettoniche</b></span></a>
+      <nav id="article-navigation" class="b-head__nav" aria-label="navigazione">
         <a href="../studio.html">studio</a>
         <a href="../lavori.html" data-i18n="nav.lavori">lavori</a>
         <a href="../index.html" class="is-on" data-i18n="nav.diario">diario</a>
@@ -61,16 +63,16 @@ window.PAGE_EN = {
         <a href="../contatti.html" data-i18n="nav.contatti">contatti</a>
         <a href="../admin/upload.html" class="b-head__nav-upload" aria-label="upload foto">↑</a>
       </nav>
-      <button class="b-head__menu" type="button" aria-label="menu">menu</button>
+      <button class="b-head__menu" type="button" aria-label="menu" aria-expanded="false" aria-controls="article-navigation">menu /</button>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
 
     <article>
 
       <header class="b-art-head">
-        <div class="b-art-head__num">—<em data-i18n="p.date">16 giu 2026</em></div>
+
         <div class="b-art-head__body">
-          <div class="b-art-head__meta">
+          <div class="b-art-head__meta"><span class="b-art-date" data-i18n="p.date">16 giu 2026</span>
             <span class="kind" data-i18n="p.kind">cantiere</span>
             <span data-i18n="p.read">4 min di lettura</span>
             <span>faeto (fg)</span>
@@ -79,17 +81,17 @@ window.PAGE_EN = {
             la posa <span class="s">/</span> <b>inizia</b>
           </h1>
           <p class="b-art-head__lede" data-i18n="p.lede">
-            faeto, giugno 2026. la pietra arriva in cantiere e l'orditura
+            Faeto, giugno 2026. La pietra arriva in cantiere e l'orditura
             in basalto grigio comincia a prendere corpo sulla piazza.
-            la prima volta che il progetto lascia i fogli.
+            La prima volta che il progetto lascia i fogli.
           </p>
         </div>
       </header>
 
       <figure class="b-art-hero">
-        <img src="../assets/images/faeto-inizio-posa.jpg" alt="orditura in basalto e prima seduta monolitica in opera, chiesa madre sullo sfondo" style="width:100%;height:100%;object-fit:cover;">
+        <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/faeto-inizio-posa.jpg" alt="orditura in basalto e prima seduta monolitica in opera, chiesa madre sullo sfondo" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
         <figcaption class="b-art-hero__cap" data-i18n="p.cap">
-          i listoni di basalto grigio e la prima seduta monolitica in opera, il tessuto urbano di faeto sullo sfondo · foto s. cibelli
+          I listoni di basalto grigio e la prima seduta monolitica in opera, il tessuto urbano di Faeto sullo sfondo / foto s. Cibelli
         </figcaption>
       </figure>
 
@@ -105,114 +107,114 @@ window.PAGE_EN = {
 
         <div class="b-art-body__main">
           <p data-i18n="p.p1">
-            ci sono giornate di cantiere in cui qualcosa cambia davvero.
-            fino a ieri la piazza era ancora un piano di calcestruzzo, strisce di gesso,
-            fili tesi. oggi i primi listoni di basalto grigio sono a terra
+            Ci sono giornate di cantiere in cui qualcosa cambia davvero.
+            Fino a ieri la piazza era ancora un piano di calcestruzzo, strisce di gesso,
+            fili tesi. Oggi i primi listoni di basalto grigio sono a terra
             e l'asse della chiesa — quello stesso asse che ha guidato ogni scelta di progetto —
             è finalmente leggibile nello spazio reale.
           </p>
 
           <h2 data-i18n="p.h2a">l'orditura <b>e la logica della pietra</b></h2>
           <p data-i18n="p.p2">
-            la pavimentazione avanza per settori. il basalto grigio che segue l'asse
+            La pavimentazione avanza per settori. Il basalto grigio che segue l'asse
             prospettico della chiesa viene posto per primo, come traccia da cui tutto
-            il resto si orienta. la pietra calcarea chiara, più diffusa, riempirà
-            i campi tra le fasce. il contrasto cromatico che in progetto sembrava
+            il resto si orienta. La pietra calcarea chiara, più diffusa, riempirà
+            i campi tra le fasce. Il contrasto cromatico che in progetto sembrava
             una scelta compositiva si rivela, a terra, qualcosa di più preciso:
             una grammatica spaziale, un sistema di riferimento visivo che riconosce
             la chiesa come punto fisso del borgo.
           </p>
           <p data-i18n="p.p3">
-            dall'alto — lo scatto è stato fatto dal campanile della chiesa madre —
+            Dall'alto — lo scatto è stato fatto dal campanile della chiesa madre —
             la geometria dell'insieme è già leggibile.
-            l'orditura attraversa la piazza come un sistema di coordinate
-            posato sulla topografia medievale. è la chiesa stessa, dalla sua quota,
+            L'orditura attraversa la piazza come un sistema di coordinate
+            posato sulla topografia medievale. È la chiesa stessa, dalla sua quota,
             a mostrare come il progetto si sia orientato intorno a lei.
           </p>
         </div>
 
         <figure class="b-art-figure">
           <div class="b-art-figure__slot">
-            <img src="../assets/images/IMG_6371.jpg" alt="la piazza di faeto vista dall'alto, dal campanile della chiesa madre" style="width:100%;height:100%;object-fit:cover;">
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/IMG_6371.jpg" alt="la piazza di faeto vista dall'alto, dal campanile della chiesa madre" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <div class="b-art-figure__slot">
-            <img src="../assets/images/IMG_6364.jpg" alt="operai al lavoro con i listoni di basalto grigio, cantiere piazza di faeto" style="width:100%;height:100%;object-fit:cover;">
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/IMG_6364.jpg" alt="operai al lavoro con i listoni di basalto grigio, cantiere piazza di faeto" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <figcaption class="b-art-figure__cap" style="grid-column:1/-1;" data-i18n="p.cap2">
-            la piazza dal campanile della chiesa madre: l'orditura in basalto grigio si legge come sistema di coordinate posato sulla topografia medievale · a fianco, la posa avanza a terra · foto s. cibelli
+            La piazza dal campanile della chiesa madre: l'orditura in basalto grigio si legge come sistema di coordinate posato sulla topografia medievale / a fianco, la posa avanza a terra / foto s. Cibelli
           </figcaption>
         </figure>
 
         <blockquote class="b-art-pull" data-i18n="p.pull">
-          il disegno torna sulla piazza. non più su carta — su pietra,
+          Il disegno torna sulla piazza. Non più su carta — su pietra,
           con le stesse misure e gli stessi materiali.
           <span class="s">/</span>
-          quello che non cambia è il principio: l'asse della chiesa come
+          Quello che non cambia è il principio: l'asse della chiesa come
           riferimento di tutto.
-          <span class="src">— note di cantiere, giugno 2026</span>
+          <span class="src">— Note di cantiere, giugno 2026</span>
         </blockquote>
 
         <div class="b-art-body__main">
           <h2 data-i18n="p.h2b">la prima seduta <span class="s">/</span> il <b>pavimento che si solleva</b></h2>
           <p data-i18n="p.p4">
-            la prima seduta monolitica è già parzialmente in opera.
-            il blocco in basalto grigio — stesso materiale dell'orditura —
+            La prima seduta monolitica è già parzialmente in opera.
+            Il blocco in basalto grigio — stesso materiale dell'orditura —
             è esattamente com'era sul foglio: 180 cm per 40, altezza 45.
-            eppure vederlo a terra, accanto alle fasce già posate,
-            cambia la percezione. non è un elemento aggiunto:
-            è la pavimentazione che si solleva. la coerenza materica tiene.
+            Eppure vederlo a terra, accanto alle fasce già posate,
+            cambia la percezione. Non è un elemento aggiunto:
+            è la pavimentazione che si solleva. La coerenza materica tiene.
           </p>
           <p data-i18n="p.p5">
-            questa era la condizione di progetto che ci premeva di più:
+            Questa era la condizione di progetto che ci premeva di più:
             che la seduta non si leggesse come arredo urbano posato sopra la piazza,
             ma come estensione tettonica di essa.
-            la pietra si dimostra coerente — stesso grigio, stessa texture, stesso peso.
+            La pietra si dimostra coerente — stesso grigio, stessa texture, stesso peso.
           </p>
         </div>
 
         <figure class="b-art-figure is-wide">
           <div class="b-art-figure__slot" style="grid-column:1/-1; aspect-ratio:4/3;">
-            <img src="../assets/images/IMG_6365.jpg" alt="listoni di basalto grigio posati e primo blocco seduta monolitica in opera, piazza di faeto" style="width:100%;height:100%;object-fit:cover;">
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/IMG_6365.jpg" alt="listoni di basalto grigio posati e primo blocco seduta monolitica in opera, piazza di faeto" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <figcaption class="b-art-figure__cap" style="grid-column:1/-1;" data-i18n="p.cap3">
-            i listoni di basalto posati e il blocco della prima seduta monolitica in opera — stesso materiale, stessa texture, stesso grigio · foto s. cibelli
+            I listoni di basalto posati e il blocco della prima seduta monolitica in opera — stesso materiale, stessa texture, stesso grigio / foto s. Cibelli
           </figcaption>
         </figure>
 
         <div class="b-art-body__main">
           <h2 data-i18n="p.h2c">gli ipogei <span class="s">/</span> <b>sotto la piazza</b></h2>
           <p data-i18n="p.p6">
-            sotto la piazza il cantiere ha un altro ritmo.
-            l'arco d'ingresso al primo ipogeo è stato restaurato,
+            Sotto la piazza il cantiere ha un altro ritmo.
+            L'arco d'ingresso al primo ipogeo è stato restaurato,
             l'intonaco a calce già applicato sulle murature.
-            le travi in acciaio — gli arcarecci che sostituiscono le porzioni di volta crollata —
-            sono posizionati. lo spazio che ospiterà la narrazione franco-provenzale
+            Le travi in acciaio — gli arcarecci che sostituiscono le porzioni di volta crollata —
+            sono posizionati. Lo spazio che ospiterà la narrazione franco-provenzale
             comincia ad avere una forma definita: raccolto, basso, orientato.
-            un luogo che chiede attenzione.
+            Un luogo che chiede attenzione.
           </p>
           <p data-i18n="p.p7">
-            l'acciaio scatolato corre lungo la linea della volta, seguendone la curva
-            dove sopravvive, colmando dove manca. è un inserimento contemporaneo
+            L'acciaio scatolato corre lungo la linea della volta, seguendone la curva
+            dove sopravvive, colmando dove manca. È un inserimento contemporaneo
             che si legge come tale, senza fingere di essere muratura storica.
-            l'intonaco a calce sulle pareti mostra già il suo colore:
+            L'intonaco a calce sulle pareti mostra già il suo colore:
             un bianco caldo che assorbe la poca luce che scende dall'apertura d'accesso.
           </p>
           <p data-i18n="p.p8">
-            la prossima fase sarà la chiusura della posa sulla superficie principale.
-            poi le sedute una per una, fino alla composizione completa.
-            nel frattempo, sotto, il lavoro negli ipogei continua su un calendario separato.
+            La prossima fase sarà la chiusura della posa sulla superficie principale.
+            Poi le sedute una per una, fino alla composizione completa.
+            Nel frattempo, sotto, il lavoro negli ipogei continua su un calendario separato.
           </p>
         </div>
 
         <figure class="b-art-figure">
           <div class="b-art-figure__slot">
-            <img src="../assets/images/IMG_6367.jpg" alt="arco d'ingresso del primo ipogeo restaurato con intonaco a calce, piazza di faeto" style="width:100%;height:100%;object-fit:cover;">
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/IMG_6367.jpg" alt="arco d'ingresso del primo ipogeo restaurato con intonaco a calce, piazza di faeto" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <div class="b-art-figure__slot">
-            <img src="../assets/images/IMG_6366.jpg" alt="interno del primo ipogeo, arcarecci in acciaio scatolato posizionati lungo la volta" style="width:100%;height:100%;object-fit:cover;">
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/IMG_6366.jpg" alt="interno del primo ipogeo, arcarecci in acciaio scatolato posizionati lungo la volta" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <figcaption class="b-art-figure__cap" style="grid-column:1/-1;" data-i18n="p.cap4">
-            l'arco d'ingresso al primo ipogeo con intonaco a calce già applicato · a fianco, l'interno: gli arcarecci in acciaio scatolato corrono lungo la linea della volta · foto s. cibelli
+            L'arco d'ingresso al primo ipogeo con intonaco a calce già applicato / a fianco, l'interno: gli arcarecci in acciaio scatolato corrono lungo la linea della volta / foto s. Cibelli
           </figcaption>
         </figure>
 
@@ -222,12 +224,12 @@ window.PAGE_EN = {
         <div class="b-art-tail__rail" data-i18n="art.colophon">colophon</div>
         <div class="b-art-tail__author">
           <div class="b-art-tail__avatar">
-            <image-slot id="art-author" src="../assets/images/autore.png" placeholder="foto autore"></image-slot>
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/autore.png" alt="foto autore" width="72" height="72"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <p class="b-art-tail__bio" data-i18n="p.bio">
-            <strong>cibelli / guadagno</strong>
-            architetti associati. attivi a troia (fg) dal 2000, dopo la laurea alla "la sapienza"
-            di roma. si occupano di restauro conservativo, progettazione architettonica e design.
+            <strong>Cibelli / Guadagno</strong>
+            architetti associati. Attivi a troia (fg) dal 2000, dopo la laurea alla "la sapienza"
+            di roma. Si occupano di restauro conservativo, progettazione architettonica e design.
           </p>
         </div>
         <div class="b-art-tail__share">
@@ -245,19 +247,19 @@ window.PAGE_EN = {
     <a class="b-next" href="../index.html">
       <span class="b-next__label" data-i18n="art.back.label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
       <h3 class="b-next__title" data-i18n="art.back.title">tutti i <b>post</b></h3>
-      <span class="b-next__arrow">→</span>
+      <span class="b-next__arrow">/</span>
     </a>
 
     <footer class="b-foot">
       <div class="b-foot__left">
         <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
         <p class="b-foot__sub" data-i18n="foot.diary.sub">
-          qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
-          solo cose che ci sembrano valga la pena ricordare.
+          Qualche scrittura al mese, mai più di due. Niente promozioni, niente notifiche.
+          Solo cose che ci sembrano valga la pena ricordare.
         </p>
         <form class="b-foot__form">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti /</button>
         </form>
       </div>
       <div class="b-foot__right">
@@ -275,7 +277,7 @@ window.PAGE_EN = {
         </div>
         <div class="b-foot__base">
           <span>Cibelli<span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>Guadagno architetti · p. iva 02207070711</span>
-          <span>© mmxxv</span>
+          <span>© 2026</span>
         </div>
       </div>
     </footer>

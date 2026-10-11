@@ -94,12 +94,14 @@
   if (menuBtn && headNav) {
     menuBtn.addEventListener('click', () => {
       const open = headNav.classList.toggle('is-open');
-      menuBtn.textContent = open ? '×' : 'menu';
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? (document.documentElement.lang === 'en' ? 'close /' : 'chiudi /') : 'menu /';
     });
     document.addEventListener('click', (e) => {
       if (!e.target.closest('.b-head') && headNav.classList.contains('is-open')) {
         headNav.classList.remove('is-open');
-        menuBtn.textContent = 'menu';
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = 'menu /';
       }
     });
   }
@@ -178,7 +180,7 @@
     // shared footer diary newsletter
     'foot.diary.title':     'the journal <span class="s">/</span> by <b>mail</b>',
     'foot.diary.sub':       'A few writings a month, never more than two. No promotions, no notifications. Just things that seem worth remembering.',
-    'foot.subscribe':       'subscribe →',
+    'foot.subscribe':       'subscribe /',
     // index banner
     'index.meta2':          'open journal, non-periodic',
     'index.l1':             'architectural',
@@ -278,6 +280,7 @@
     if (btn) btn.textContent = lang === 'en' ? 'en / it' : 'it / en';
     _lang = lang;
     localStorage.setItem('cg-lang', lang);
+    document.dispatchEvent(new CustomEvent('cg-language-change', { detail: { language: lang } }));
   }
 
   const langBtn = document.querySelector('.b-head__lang');

@@ -7,9 +7,11 @@
 <meta name="description" content="descrizione articolo.">
 <link rel="stylesheet" href="../styles.css">
 <script src="../image-slot.js" defer></script>
-<script src="../blog.js?v=20260616" defer></script>
+<script src="../blog.js?v=20261011-2" defer></script>
+<link rel="stylesheet" href="../article-brand.css?v=20261011">
+<script src="../article-brand.js?v=20261011-2" defer></script>
 </head>
-<body data-screen-label="blog article">
+<body class="cg-article" data-screen-label="blog article">
 <div class="b-page">
 
   <div class="b-ambient" aria-hidden="true">
@@ -21,15 +23,15 @@
     <header class="b-head">
       <a class="b-head__mark" href="../index.html">
         cıbellı<span class="s">/</span>guadagno<sup>®</sup>
-      </a>
-      <nav class="b-head__nav" aria-label="navigazione">
+      <span class="b-head__tagline">inclinazioni <b>architettoniche</b></span></a>
+      <nav id="article-navigation" class="b-head__nav" aria-label="navigazione">
         <a href="../studio.html">studio</a>
         <a href="../lavori.html" data-i18n="nav.lavori">lavori</a>
         <a href="../index.html" class="is-on" data-i18n="nav.diario">diario</a>
         <a href="../software.html" data-i18n="nav.software">lightcalc</a>
         <a href="../contatti.html" data-i18n="nav.contatti">contatti</a>
       </nav>
-      <button class="b-head__menu" type="button" aria-label="menu">menu</button>
+      <button class="b-head__menu" type="button" aria-label="menu" aria-expanded="false" aria-controls="article-navigation">menu /</button>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
 
@@ -37,9 +39,9 @@
 
       <!-- intestazione articolo -->
       <header class="b-art-head">
-        <div class="b-art-head__num">—<em>mese anno</em></div>
+
         <div class="b-art-head__body">
-          <div class="b-art-head__meta">
+          <div class="b-art-head__meta"><span class="b-art-date">mese anno</span>
             <span class="kind">categoria</span>
             <span>— min di lettura</span>
             <span>luogo</span>
@@ -49,16 +51,16 @@
             titolo <span class="s">/</span> <b>sottotitolo</b>
           </h1>
           <p class="b-art-head__lede">
-            testo introduttivo dell'articolo. una o due frasi che anticipano il contenuto.
+            Testo introduttivo dell'articolo. Una o due frasi che anticipano il contenuto.
           </p>
         </div>
       </header>
 
       <!-- immagine hero -->
       <figure class="b-art-hero">
-        <image-slot id="art-hero" placeholder="immagine principale"></image-slot>
+        <image-slot shape="square" id="art-hero" placeholder="immagine principale"></image-slot>
         <figcaption class="b-art-hero__cap">
-          didascalia immagine · foto autore
+          Didascalia immagine / foto autore
         </figcaption>
       </figure>
 
@@ -77,35 +79,35 @@
         <!-- testo principale -->
         <div class="b-art-body__main">
           <p>
-            primo paragrafo del testo.
+            Primo paragrafo del testo.
           </p>
           <p>
-            secondo paragrafo del testo.
+            Secondo paragrafo del testo.
           </p>
 
           <h2>titolo sezione <span class="s">/</span> <b>sottosezione</b></h2>
           <p>
-            testo della sezione.
+            Testo della sezione.
           </p>
           <p>
-            continuazione della sezione.
+            Continuazione della sezione.
           </p>
         </div>
 
         <!-- citazione in evidenza -->
         <blockquote class="b-art-pull">
-          testo della citazione in evidenza.
-          <span class="src">— fonte, data</span>
+          Testo della citazione in evidenza.
+          <span class="src">— Fonte, data</span>
         </blockquote>
 
         <!-- testo dopo la citazione -->
         <div class="b-art-body__main">
           <h2>titolo seconda sezione <span class="s">/</span> <b>sottosezione</b></h2>
           <p>
-            testo della seconda sezione.
+            Testo della seconda sezione.
           </p>
           <p>
-            continuazione della seconda sezione.
+            Continuazione della seconda sezione.
           </p>
         </div>
 
@@ -113,18 +115,18 @@
         <figure class="b-art-figure">
           <div>
             <div class="b-art-figure__slot">
-              <image-slot id="art-fig-1" placeholder="immagine 1"></image-slot>
+              <image-slot shape="square" id="art-fig-1" placeholder="immagine 1"></image-slot>
             </div>
             <figcaption class="b-art-figure__cap">
-              <em>fig. 01</em> · didascalia immagine 1.
+              <em>Fig. 01</em> / didascalia immagine 1.
             </figcaption>
           </div>
           <div>
             <div class="b-art-figure__slot">
-              <image-slot id="art-fig-2" placeholder="immagine 2"></image-slot>
+              <image-slot shape="square" id="art-fig-2" placeholder="immagine 2"></image-slot>
             </div>
             <figcaption class="b-art-figure__cap">
-              <em>fig. 02</em> · didascalia immagine 2.
+              <em>Fig. 02</em> / didascalia immagine 2.
             </figcaption>
           </div>
         </figure>
@@ -133,10 +135,10 @@
         <div class="b-art-body__main">
           <h2>titolo terza sezione <span class="s">/</span> <b>conclusione</b></h2>
           <p>
-            testo conclusivo dell'articolo.
+            Testo conclusivo dell'articolo.
           </p>
           <p>
-            ultimo paragrafo.
+            Ultimo paragrafo.
           </p>
         </div>
 
@@ -147,10 +149,10 @@
         <div class="b-art-tail__rail" data-i18n="art.colophon">colophon</div>
         <div class="b-art-tail__author">
           <div class="b-art-tail__avatar">
-            <image-slot id="art-author" placeholder="foto autore"></image-slot>
+            <image-slot shape="square" id="art-author" placeholder="foto autore"></image-slot>
           </div>
           <p class="b-art-tail__bio">
-            <strong>autore</strong>
+            <strong>Autore</strong>
             breve biografia dell'autore dell'articolo.
           </p>
         </div>
@@ -170,19 +172,19 @@
     <a class="b-next" href="../index.html">
       <span class="b-next__label" data-i18n="art.back.label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
       <h3 class="b-next__title" data-i18n="art.back.title">tutti i <b>post</b></h3>
-      <span class="b-next__arrow">→</span>
+      <span class="b-next__arrow">/</span>
     </a>
 
     <footer class="b-foot">
       <div class="b-foot__left">
         <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
         <p class="b-foot__sub" data-i18n="foot.diary.sub">
-          qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
-          solo cose che ci sembrano valga la pena ricordare.
+          Qualche scrittura al mese, mai più di due. Niente promozioni, niente notifiche.
+          Solo cose che ci sembrano valga la pena ricordare.
         </p>
         <form class="b-foot__form">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti /</button>
         </form>
       </div>
       <div class="b-foot__right">
@@ -200,7 +202,7 @@
         </div>
         <div class="b-foot__base">
           <span>Cibelli<span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>Guadagno architetti · p. iva 02207070711</span>
-          <span>© mmxxv</span>
+          <span>© 2026</span>
         </div>
       </div>
     </footer>

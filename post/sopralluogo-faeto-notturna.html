@@ -7,11 +7,13 @@
 <meta name="description" content="Faeto, piazza in costruzione. Un sopralluogo notturno con Edil Tortorella per tracciare la pavimentazione e l'impianto elettrico.">
 <link rel="stylesheet" href="../styles.css">
 <script src="../image-slot.js" defer></script>
-<script src="../blog.js?v=20260616" defer></script>
+<script src="../blog.js?v=20261011-2" defer></script>
+<link rel="stylesheet" href="../article-brand.css?v=20261011">
+<script src="../article-brand.js?v=20261011-2" defer></script>
 </head>
-<body data-screen-label="blog article — sopralluogo faeto notturna">
+<body class="cg-article" data-screen-label="blog article — sopralluogo faeto notturna">
 <script>
-/* traduzione inglese di questo articolo — letta da blog.js */
+/* traduzione inglese di questo articolo — letta da blog.js?v=20261011-2 */
 window.PAGE_EN = {
   'p.date': '04 jun 2026',
   'p.kind': 'site',
@@ -46,8 +48,8 @@ window.PAGE_EN = {
     <header class="b-head">
       <a class="b-head__mark" href="../index.html">
         cıbellı<span class="s">/</span>guadagno<sup>®</sup>
-      </a>
-      <nav class="b-head__nav" aria-label="navigazione">
+      <span class="b-head__tagline">inclinazioni <b>architettoniche</b></span></a>
+      <nav id="article-navigation" class="b-head__nav" aria-label="navigazione">
         <a href="../studio.html">studio</a>
         <a href="../lavori.html" data-i18n="nav.lavori">lavori</a>
         <a href="../index.html" class="is-on" data-i18n="nav.diario">diario</a>
@@ -55,16 +57,16 @@ window.PAGE_EN = {
         <a href="../contatti.html" data-i18n="nav.contatti">contatti</a>
         <a href="../admin/upload.html" class="b-head__nav-upload" aria-label="upload foto">↑</a>
       </nav>
-      <button class="b-head__menu" type="button" aria-label="menu">menu</button>
+      <button class="b-head__menu" type="button" aria-label="menu" aria-expanded="false" aria-controls="article-navigation">menu /</button>
       <button class="b-head__lang" type="button">it / en</button>
     </header>
 
     <article>
 
       <header class="b-art-head">
-        <div class="b-art-head__num">—<em data-i18n="p.date">04 giu 2026</em></div>
+
         <div class="b-art-head__body">
-          <div class="b-art-head__meta">
+          <div class="b-art-head__meta"><span class="b-art-date" data-i18n="p.date">04 giu 2026</span>
             <span class="kind" data-i18n="p.kind">cantiere</span>
             <span data-i18n="p.read">4 min di lettura</span>
             <span>faeto (fg)</span>
@@ -73,18 +75,18 @@ window.PAGE_EN = {
             un sopralluogo <span class="s">/</span> <b>in notturna</b>
           </h1>
           <p class="b-art-head__lede" data-i18n="p.lede">
-            faeto, giugno 2026. sopralluogo serale con edil tortorella per tracciare
+            Faeto, giugno 2026. Sopralluogo serale con Edil Tortorella per tracciare
             i filari della pavimentazione e i cavidotti dell'impianto elettrico.
-            la scelta dell'orario era tecnica: il laser per gli allineamenti
+            La scelta dell'orario era tecnica: il laser per gli allineamenti
             richiede poca luce ambientale.
           </p>
         </div>
       </header>
 
       <figure class="b-art-hero">
-        <img src="../assets/images/sopralluogo-faeto-notturna.jpg" alt="cantiere della piazza di faeto — sopralluogo notturno" style="width:100%;height:100%;object-fit:cover;">
+        <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/sopralluogo-faeto-notturna.jpg" alt="cantiere della piazza di faeto — sopralluogo notturno" style="width:100%;height:100%;object-fit:cover;"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
         <figcaption class="b-art-hero__cap" data-i18n="p.cap">
-          il cantiere della piazza, con il piano di posa ancora aperto · foto s. cibelli
+          Il cantiere della piazza, con il piano di posa ancora aperto / foto s. Cibelli
         </figcaption>
       </figure>
 
@@ -100,51 +102,51 @@ window.PAGE_EN = {
 
         <div class="b-art-body__main">
           <p data-i18n="p.p1">
-            la gettata di fondazione era pronta, le quote definite. bisognava
+            La gettata di fondazione era pronta, le quote definite. Bisognava
             riportare a terra i tracciati prima che il piano di posa si chiudesse.
-            abbiamo lavorato con il laser rotante per gli allineamenti dei filari —
+            Abbiamo lavorato con il laser rotante per gli allineamenti dei filari —
             uno strumento che perde precisione con la luce diretta del sole —
-            e con i titolari di edil tortorella abbiamo percorso il cantiere punto per punto.
+            e con i titolari di Edil Tortorella abbiamo percorso il cantiere punto per punto.
           </p>
 
           <h2 data-i18n="p.h2a">tracciamento <b>e allineamenti</b></h2>
           <p data-i18n="p.p2">
-            il margine est della zona pedonale è stato spostato di venti centimetri
+            Il margine est della zona pedonale è stato spostato di venti centimetri
             e l'orientamento di tre filari della pavimentazione ridefinito.
-            correzioni che richiedevano misure precise sul posto, non sulla carta.
+            Correzioni che richiedevano misure precise sul posto, non sulla carta.
           </p>
           <p data-i18n="p.p3">
-            i cavidotti dell'impianto elettrico sono stati tracciati in coordinamento
+            I cavidotti dell'impianto elettrico sono stati tracciati in coordinamento
             con la pavimentazione: ogni punto luce è posizionato in funzione dei percorsi
-            e degli elementi di arredo. tracciare prima della posa significa
+            e degli elementi di arredo. Tracciare prima della posa significa
             poter ancora correggere senza demolire.
           </p>
         </div>
 
         <blockquote class="b-art-pull" data-i18n="p.pull">
-          gli ipogei sono il capitolo più delicato. due ambienti sotterranei che
+          Gli ipogei sono il capitolo più delicato. Due ambienti sotterranei che
           la piazza coprirà senza nascondere. <span class="s">/</span>
-          i cavidotti devono girarci intorno, non passarci sopra.
-          <span class="src">— dal verbale di cantiere, giugno 2026</span>
+          I cavidotti devono girarci intorno, non passarci sopra.
+          <span class="src">— Dal verbale di cantiere, giugno 2026</span>
         </blockquote>
 
         <div class="b-art-body__main">
           <h2 data-i18n="p.h2b">gli ipogei <span class="s">/</span> il <b>progetto nel progetto</b></h2>
           <p data-i18n="p.p4">
-            sotto la piazza di faeto ci sono due ambienti ipogei da recuperare.
-            il progetto ne prevede la fruizione attraverso un accesso da un lato
+            Sotto la piazza di Faeto ci sono due ambienti ipogei da recuperare.
+            Il progetto ne prevede la fruizione attraverso un accesso da un lato
             della piazza: gli spazi saranno destinati a un'esperienza audiovisiva
-            sulle radici franco-provenzali della cultura di faeto — una delle poche
+            sulle radici franco-provenzali della cultura di Faeto — una delle poche
             comunità italiane dove quella lingua è ancora parlata.
           </p>
           <p data-i18n="p.p5">
-            il tracciato dei cavidotti è stato ridisegnato stanotte in funzione
-            di questo programma. l'impianto deve servire gli ambienti ipogei
+            Il tracciato dei cavidotti è stato ridisegnato stanotte in funzione
+            di questo programma. L'impianto deve servire gli ambienti ipogei
             senza attraversarli: i passaggi restano laterali, controllati, reversibili.
-            è una delle condizioni di progetto che non ammette compromessi.
+            È una delle condizioni di progetto che non ammette compromessi.
           </p>
           <p data-i18n="p.p6">
-            il prossimo sopralluogo sarà a posa iniziata.
+            Il prossimo sopralluogo sarà a posa iniziata.
           </p>
         </div>
 
@@ -154,12 +156,12 @@ window.PAGE_EN = {
         <div class="b-art-tail__rail" data-i18n="art.colophon">colophon</div>
         <div class="b-art-tail__author">
           <div class="b-art-tail__avatar">
-            <image-slot id="art-author" src="../assets/images/autore.png" placeholder="foto autore"></image-slot>
+            <button class="b-photo" type="button" aria-haspopup="dialog"><img src="../assets/images/autore.png" alt="foto autore" width="72" height="72"><span class="b-photo__open" data-photo-label>ingrandisci /</span></button>
           </div>
           <p class="b-art-tail__bio" data-i18n="p.bio">
-            <strong>cibelli / guadagno</strong>
-            architetti associati. attivi a troia (fg) dal 2000, dopo la laurea alla "la sapienza"
-            di roma. si occupano di restauro conservativo, progettazione architettonica e design.
+            <strong>Cibelli / Guadagno</strong>
+            architetti associati. Attivi a troia (fg) dal 2000, dopo la laurea alla "la sapienza"
+            di roma. Si occupano di restauro conservativo, progettazione architettonica e design.
           </p>
         </div>
         <div class="b-art-tail__share">
@@ -177,19 +179,19 @@ window.PAGE_EN = {
     <a class="b-next" href="../index.html">
       <span class="b-next__label" data-i18n="art.back.label">torna al diario <span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span></span>
       <h3 class="b-next__title" data-i18n="art.back.title">tutti i <b>post</b></h3>
-      <span class="b-next__arrow">→</span>
+      <span class="b-next__arrow">/</span>
     </a>
 
     <footer class="b-foot">
       <div class="b-foot__left">
         <h3 class="b-foot__title" data-i18n="foot.diary.title">il diario <span class="s">/</span> in <b>posta</b></h3>
         <p class="b-foot__sub" data-i18n="foot.diary.sub">
-          qualche scrittura al mese, mai più di due. niente promozioni, niente notifiche.
-          solo cose che ci sembrano valga la pena ricordare.
+          Qualche scrittura al mese, mai più di due. Niente promozioni, niente notifiche.
+          Solo cose che ci sembrano valga la pena ricordare.
         </p>
         <form class="b-foot__form">
           <input type="email" placeholder="la tua email" aria-label="email">
-          <button type="submit" data-i18n="foot.subscribe">iscriviti →</button>
+          <button type="submit" data-i18n="foot.subscribe">iscriviti /</button>
         </form>
       </div>
       <div class="b-foot__right">
@@ -207,7 +209,7 @@ window.PAGE_EN = {
         </div>
         <div class="b-foot__base">
           <span>Cibelli<span class="s" style="color:var(--accent);font-weight:200;padding:0 .14em;">/</span>Guadagno architetti · p. iva 02207070711</span>
-          <span>© mmxxv</span>
+          <span>© 2026</span>
         </div>
       </div>
     </footer>

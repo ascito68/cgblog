@@ -1,0 +1,21 @@
+/* Diary composition inspired by ReBrand pp. 36–37. Scoped to index. */
+.cg-diary{background:var(--cg-bianco)}
+.cg-diary .b-entry,.cg-diary .b-entry.is-mirror{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--cg-space-12);align-items:center;padding:var(--cg-space-12) 0}
+.cg-diary .b-entry__num{grid-column:1;grid-row:1;align-self:start}
+.cg-diary .b-entry__main,.cg-diary .b-entry.is-mirror .b-entry__main{grid-column:1;grid-row:1;padding-top:var(--cg-space-8)}
+.cg-diary .b-entry__photo,.cg-diary .b-entry.is-mirror .b-entry__photo{grid-column:2;grid-row:1;width:100%;aspect-ratio:auto;background:var(--cg-bianco);overflow:hidden;isolation:isolate}
+.cg-diary .b-entry__photo img{position:static;display:block;width:100%;height:auto;object-fit:contain}
+.cg-diary .b-entry__photo::after{background:var(--cg-tortora);opacity:.28;mask:none;-webkit-mask:none;clip-path:polygon(0 100%,24% 100%,62% 0,38% 0)}
+.cg-diary .b-entry__photo.is-artwork{padding:var(--cg-space-6);background:var(--cg-soft)}
+.cg-diary .b-entry__photo.is-artwork img{position:relative;z-index:1}
+.cg-diary .b-entry__photo.is-artwork::after{z-index:0}
+.cg-diary .b-entry:hover{padding-left:0}
+.cg-diary .b-entry.is-textonly .b-entry__main{grid-column:1 / -1}
+@media(max-width:920px){
+ .cg-diary .b-entry,.cg-diary .b-entry.is-mirror{grid-template-columns:minmax(0,1fr);gap:var(--cg-space-6);padding:var(--cg-space-8) 0}
+ .cg-diary .b-entry__photo,.cg-diary .b-entry.is-mirror .b-entry__photo{grid-column:1;grid-row:1;display:block}
+ .cg-diary .b-entry__num{grid-column:1;grid-row:2}
+ .cg-diary .b-entry__main,.cg-diary .b-entry.is-mirror .b-entry__main{grid-column:1;grid-row:2;padding-top:var(--cg-space-8)}
+}
+
+.cg-diary .b-entry.is-textonly .b-entry__photo{display:none}
